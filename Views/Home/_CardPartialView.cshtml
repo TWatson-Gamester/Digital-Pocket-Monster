@@ -1,0 +1,17 @@
+﻿@model Card
+
+@if (Model == null)
+{
+    <h1>No card available</h1>
+}
+else
+{
+<div>
+    <h3>@Model.name</h3>
+    <h4>Year: @Model.cardType</h4>
+    <h4>Rating: @Model.color</h4>
+    <h4>Rating: @Model.level</h4>
+    <h5>Rating: @Model.cardNumber</h5>
+    <img src="~/images/@Model.image">
+</div>
+}

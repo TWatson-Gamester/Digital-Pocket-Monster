@@ -12,19 +12,21 @@ namespace Digital_Pocket_Monster.Models
         public string color { get; set; }
         public int level { get; set; }
         public string cardNumber { get; set; }
+        public string image { get; set; }
 
         public Card()
         {
 
         }
 
-        public Card(string name, string cardType, string color, int level, string cardNumber)
+        public Card(string name, string cardType, string color, int level, string cardNumber, string image)
         {
             this.name = name;
             this.cardType = cardType;
             this.color = color;
             this.level = level;
             this.cardNumber = cardNumber;
+            this.image = image;
         }
         public override string ToString()
         {
