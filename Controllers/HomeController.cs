@@ -28,6 +28,16 @@ namespace Digital_Pocket_Monster.Controllers
             return View();
         }
 
+        public IActionResult Database()
+        {
+            return Redirect("https://digimoncard.dev/");
+        }
+
+        public IActionResult Store()
+        {
+            return Redirect("https://www.tcgplayer.com/search/digimon-card-game/product?productLineName=digimon-card-game&view=grid&page=1");
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
