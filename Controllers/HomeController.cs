@@ -18,12 +18,37 @@ namespace Digital_Pocket_Monster.Controllers
             _logger = logger;
         }
 
+        public static List<Card> cardList = new List<Card>()
+        {
+            new Card("Frisbeemon 1", "bitch", "purple", 69, "9001", "meme.png"), 
+            new Card("Frisbeemon 2", "bitch", "purple", 69, "9001", "meme.png"), 
+            new Card("Frisbeemon 3", "bitch", "purple", 69, "9001", "meme.png"), 
+            new Card("Frisbeemon 4", "bitch", "purple", 69, "9001", "meme.png"), 
+            new Card("Frisbeemon 5", "bitch", "purple", 69, "9001", "meme.png"), 
+            new Card("Frisbeemon 6", "bitch", "purple", 69, "9001", "meme.png"),
+            new Card("Frisbeemon 7", "bitch", "purple", 69, "9001", "meme.png"),
+            new Card("Frisbeemon 8", "bitch", "purple", 69, "9001", "meme.png"),
+            new Card("Frisbeemon 9", "bitch", "purple", 69, "9001", "meme.png")
+        };
+
         public IActionResult Index()
         {
             return View();
         }
 
         public IActionResult Privacy()
+        {
+            return View();
+        }
+        public IActionResult Collection()
+        {
+            return View(cardList);
+        }
+        public IActionResult Profile()
+        {
+            return View();
+        }
+        public IActionResult DeckBuilding()
         {
             return View();
         }
