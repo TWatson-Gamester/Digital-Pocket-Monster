@@ -6,12 +6,14 @@
 }
 else
 {
-<div>
-    <h3>@Model.name</h3>
-    <h4>Year: @Model.cardType</h4>
-    <h4>Rating: @Model.color</h4>
-    <h4>Rating: @Model.level</h4>
-    <h5>Rating: @Model.cardNumber</h5>
-    <img src="~/images/@Model.image">
-</div>
+    <div class="col-sm-4 p-3">
+        <div class="round-10 text-center btn-neum-black bold p-5">
+            <h3>@Model.name</h3>
+            <h4>Year: @Model.cardType</h4>
+            <h4>Color: @Model.color</h4>
+            <h4>Level: @Model.level</h4>
+            <h5>Card Number: @Model.cardNumber</h5>
+            <img class="cardImageSize" src="~/images/@Model.image">
+        </div>
+    </div>
 }
