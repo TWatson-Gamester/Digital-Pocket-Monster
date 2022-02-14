@@ -28,7 +28,10 @@ namespace Digital_Pocket_Monster.Controllers
             new Card("Frisbeemon 6", "bitch", "purple", 69, "9001", "meme.png"),
             new Card("Frisbeemon 7", "bitch", "purple", 69, "9001", "meme.png"),
             new Card("Frisbeemon 8", "bitch", "purple", 69, "9001", "meme.png"),
-            new Card("Frisbeemon 9", "bitch", "purple", 69, "9001", "meme.png")
+            new Card("Frisbeemon 9", "bitch", "purple", 69, "9001", "meme.png"),
+            new Card("Frisbeemon 10", "bitch", "purple", 69, "9001", "meme.png"),
+            new Card("Frisbeemon 11", "bitch", "purple", 69, "9001", "meme.png"),
+            new Card("Frisbeemon 12", "bitch", "purple", 69, "9001", "meme.png")
         };
 
         public IActionResult Index()
