@@ -15,7 +15,7 @@ namespace Digital_Pocket_Monster.Models
         public Pack(int id, string packName)
         {
             this.ID = id;
-            this.deckName = packName;
+            this.packName = packName;
         }
     }
 }
