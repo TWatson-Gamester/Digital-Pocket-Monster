@@ -1,4 +1,6 @@
 ﻿using Digital_Pocket_Monster.Models;
+using Digital_Pocket_Monster.Data;
+using Digital_Pocket_Monster.Interface;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -11,25 +13,18 @@ namespace Digital_Pocket_Monster.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        //private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        //public HomeController(ILogger<HomeController> logger)
+        //{
+        //    _logger = logger;
+        //}
+
+        IDataAccessLayer dal;
+        public HomeController (IDataAccessLayer indal)
         {
-            _logger = logger;
+            dal = indal;
         }
-
-        public static List<Card> cardList = new List<Card>()
-        {
-            new Card("Frisbeemon 1", "bitch", "purple", 69, "9001", "meme.png"), 
-            new Card("Frisbeemon 2", "bitch", "purple", 69, "9001", "meme.png"), 
-            new Card("Frisbeemon 3", "bitch", "purple", 69, "9001", "meme.png"), 
-            new Card("Frisbeemon 4", "bitch", "purple", 69, "9001", "meme.png"), 
-            new Card("Frisbeemon 5", "bitch", "purple", 69, "9001", "meme.png"), 
-            new Card("Frisbeemon 6", "bitch", "purple", 69, "9001", "meme.png"),
-            new Card("Frisbeemon 7", "bitch", "purple", 69, "9001", "meme.png"),
-            new Card("Frisbeemon 8", "bitch", "purple", 69, "9001", "meme.png"),
-            new Card("Frisbeemon 9", "bitch", "purple", 69, "9001", "meme.png")
-        };
 
         public IActionResult Index()
         {
@@ -42,7 +37,18 @@ namespace Digital_Pocket_Monster.Controllers
         }
         public IActionResult Collection()
         {
-            return View(cardList);
+            return View(dal.showCards());
+        }
+
+        public IActionResult SeachCards(string srchKeyTerms)
+        {
+            
+            return View("Collection", dal.searchCards(srchKeyTerms));
+        }
+
+        public IActionResult FilterCards(string color, string cardType, int? level, string name)
+        {
+            return View("Collection", dal.filterCards(color, cardType, level, name)); 
         }
         public IActionResult Profile()
         {
