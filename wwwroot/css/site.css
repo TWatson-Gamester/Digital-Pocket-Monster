@@ -24,6 +24,10 @@ a {
   border-color: #1861ac;
 }
 
+.logoSize{
+    width: 50px;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -70,8 +74,19 @@ body {
   line-height: 60px; /* Vertically center the text there */
 }
 
+/*New CSS Added by Project*/
+
+img {
+    max-width: 100%;
+}
+
+.logosize {
+    height: 50px;
+    width: 50px;
+}
+
 .cardImageSize {
-    width: 100px;
+    width: 300px;
 }
 
 .round-10 {
@@ -79,12 +94,28 @@ body {
 }
 
 .btn-neum-black {
-    background-color: #1f1f1f !important;
-    border-color: #1f1f1f !important;
-    color: #FC0 !important;
+    background-color: powderblue;
+    border-color: blue;
+    color: black;
 }
 
-.bold {
+.sidebar {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding: 5px;
+    box-shadow: inset -1px 0 0 rgb(0 0 0 / 10%);
+}
+
+.sidebar-sticky {
+    position: sticky;
+}
+
+.pageTitle {
+    background-color: blue;
+}
+/*.bold {
     font-family: 'DIN BOLD';
     font-weight: bold;
-}
+}*/
