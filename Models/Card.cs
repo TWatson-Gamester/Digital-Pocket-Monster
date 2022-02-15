@@ -22,7 +22,7 @@ namespace Digital_Pocket_Monster.Models
         public string attribute { get; set; }
         public string stageLevel { get; set; }
         public string rarity { get; set; }
-        public int amountOwned { get; set; } = 0
+        public int amountOwned { get; set; } = 0;
         private int packID { get; set; }
         private int? deckID { get; set; }
 

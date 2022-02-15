@@ -41,7 +41,7 @@ namespace Digital_Pocket_Monster.Data
 
             foreach(var c in cardList)
             {
-                if((!colorCheck || c.color.ToUpper().Contains(color.ToUpper())) && (!typeCheck || (c.cardType.ToUpper().Contains(cardType.ToUpper())) && (!levelCheck || c.level == level) && (!nameCheck || c.name.ToUpper().Contains(name.ToUpper()))))
+                if((!colorCheck || c.color.ToUpper().Contains(color.ToUpper())) && (!typeCheck || (c.cardType.ToUpper().Contains(cardType.ToUpper())) && (!level.HasValue || c.level == level.Value ) && (!nameCheck || c.name.ToUpper().Contains(name.ToUpper()))))
                 {
                     tmpCards.Add(c);
                 }
