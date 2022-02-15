@@ -1,3 +1,5 @@
+using Digital_Pocket_Monster.Data;
+using Digital_Pocket_Monster.Interface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -24,6 +26,7 @@ namespace Digital_Pocket_Monster
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddTransient<IDataAccessLayer, CardsDAL>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
