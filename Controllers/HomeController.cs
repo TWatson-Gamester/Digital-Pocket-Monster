@@ -74,5 +74,23 @@ namespace Digital_Pocket_Monster.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        //To Edit the Profile Later - Currently just returns you to the Home Page
+        public IActionResult EditProfile()
+        {
+            return View("Index");
+        }
+
+        //To Change the Profile's Password - Currently just returns you to the Home Page
+        public IActionResult ChangePassword()
+        {
+            return View("Index");
+        }
+
+        //To Delete a Users Account Later - Currently just returns you to the Home Page
+        public IActionResult DeleteAccount()
+        {
+            return View("Index");
+        }
     }
 }

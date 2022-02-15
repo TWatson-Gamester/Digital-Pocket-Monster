@@ -47,3 +47,25 @@ else
 }
     </div>
 </div>
+<div class="row justify-content-center">
+    <h1>List of Cards</h1>
+</div>
+<div class="row">
+    @if (Model == null)
+    {
+        <h1>no cards</h1>
+    }
+    else
+    {
+        foreach (var card in Model)
+        {
+            <div class="col-sm-3 p-3">
+                <div class="round-10 text-center btn-neum-black bold">
+                    <div class="row">
+                        <p><partial name="_CardPartialView.cshtml" for="@card" /> </p>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
