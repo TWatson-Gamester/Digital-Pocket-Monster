@@ -10,7 +10,7 @@ namespace Digital_Pocket_Monster.Models
         public string name { get; set; }
         public string cardType { get; set; }
         public string color { get; set; }
-        public int level { get; set; }
+        public int? level { get; set; }
         public string cardNumber { get; set; }
         public string image { get; set; }
         // rest of the card info needed - Tobie
