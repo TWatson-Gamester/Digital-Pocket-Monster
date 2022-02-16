@@ -26,23 +26,23 @@ namespace Digital_Pocket_Monster.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("email")
+                    b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("varchar(100)");
 
-                    b.Property<string>("firstName")
+                    b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("varchar(15)");
 
-                    b.Property<string>("lastName")
+                    b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("varchar(25)");
 
-                    b.Property<string>("password")
+                    b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("varchar(50)");
 
-                    b.Property<string>("username")
+                    b.Property<string>("Username")
                         .IsRequired()
                         .HasColumnType("varchar(50)");
 
@@ -58,59 +58,55 @@ namespace Digital_Pocket_Monster.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("amountOwned")
+                    b.Property<int>("AmountOwned")
                         .HasColumnType("int");
 
-                    b.Property<string>("attribute")
+                    b.Property<string>("Attribute")
                         .IsRequired()
                         .HasColumnType("varchar(25)");
 
-                    b.Property<string>("cardDescription")
-                        .IsRequired()
-                        .HasColumnType("varchar(250)");
-
-                    b.Property<string>("cardNumber")
+                    b.Property<string>("CardNumber")
                         .IsRequired()
                         .HasColumnType("varchar(20)");
 
-                    b.Property<int>("cardPower")
+                    b.Property<int>("CardPower")
                         .HasColumnType("int");
 
-                    b.Property<string>("cardType")
+                    b.Property<string>("CardType")
                         .IsRequired()
                         .HasColumnType("varchar(10)");
 
-                    b.Property<string>("color")
+                    b.Property<string>("Color")
                         .IsRequired()
                         .HasColumnType("varchar(10)");
 
-                    b.Property<string>("digivolveColor")
+                    b.Property<string>("DigivolveColor")
                         .IsRequired()
                         .HasColumnType("varchar(10)");
 
-                    b.Property<string>("image")
+                    b.Property<string>("Image")
                         .IsRequired()
                         .HasColumnType("varchar(75)");
 
-                    b.Property<int>("level")
+                    b.Property<int>("Level")
                         .HasColumnType("int");
 
-                    b.Property<string>("name")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("varchar(25)");
 
-                    b.Property<int>("playCost")
+                    b.Property<int>("PlayCost")
                         .HasColumnType("int");
 
-                    b.Property<string>("race")
+                    b.Property<string>("Race")
                         .IsRequired()
                         .HasColumnType("varchar(25)");
 
-                    b.Property<string>("rarity")
+                    b.Property<string>("Rarity")
                         .IsRequired()
                         .HasColumnType("varchar(15)");
 
-                    b.Property<string>("stageLevel")
+                    b.Property<string>("StageLevel")
                         .IsRequired()
                         .HasColumnType("varchar(10)");
 
@@ -121,16 +117,16 @@ namespace Digital_Pocket_Monster.Migrations
 
             modelBuilder.Entity("Digital_Pocket_Monster.Models.Deck", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int?>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("deckName")
+                    b.Property<string>("DeckName")
                         .IsRequired()
                         .HasColumnType("varchar(25)");
 
-                    b.Property<int?>("userID")
+                    b.Property<int?>("UserID")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
@@ -140,12 +136,12 @@ namespace Digital_Pocket_Monster.Migrations
 
             modelBuilder.Entity("Digital_Pocket_Monster.Models.Pack", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int?>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("packName")
+                    b.Property<string>("PackName")
                         .IsRequired()
                         .HasColumnType("varchar(25)");
 
