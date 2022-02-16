@@ -21,7 +21,7 @@ namespace Digital_Pocket_Monster.Data
             new Card("Frisbeemon 7", "norm", "purple", 69, "9001", "meme.png"),
             new Card("Gomamon", "Cool", "Blue", 3, "BT1-030", "Gommamon_Placeholder.png"),
             new Card("Frisbeemon 8", "hey", "purple", 69, "9001", "meme.png"),
-            new Card("Frisbeemon 9", "OHNO", "purple", 69, "9001", "meme.png")
+            new Card("Ghost", "OHNO", "purple", 69, "9001", "meme.png")
         };
 
 
@@ -41,7 +41,7 @@ namespace Digital_Pocket_Monster.Data
 
             foreach(var c in cardList)
             {
-                if((!colorCheck || c.color.ToUpper().Contains(color.ToUpper())) && (!typeCheck || (c.cardType.ToUpper().Contains(cardType.ToUpper())) && (!level.HasValue || c.level == level.Value ) && (!nameCheck || c.name.ToUpper().Contains(name.ToUpper()))))
+                if((!colorCheck || c.color.ToUpper().Contains(color.ToUpper())) && (!typeCheck || (c.cardType.ToUpper().Contains(cardType.ToUpper()))) && (!level.HasValue || c.level == level.Value ) && (!nameCheck || c.name.ToUpper().Contains(name.ToUpper())))
                 {
                     tmpCards.Add(c);
                 }
