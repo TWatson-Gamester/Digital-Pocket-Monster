@@ -47,7 +47,7 @@ namespace Digital_Pocket_Monster.Models
 
         public Card() {}
 
-        public Card(string name, string cardType, string color, int level, string cardNumber, string image)
+        public Card(string name, string cardType, string color, int? level, string cardNumber, string image)
         {
             this.Name = name;
             this.CardType = cardType;
