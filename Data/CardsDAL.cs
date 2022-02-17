@@ -11,12 +11,12 @@ namespace Digital_Pocket_Monster.Data
     {
         private static List<Card> cardList = new List<Card>()
         {
-            new Card("Frisbeemon 1", "norm", "purple", 69, "9001", "meme.png"),
-            new Card("Frisbeemon 2", "crazy", "purple", 69, "9001", "meme.png"),
-            new Card("Gomamon", "Cool", "Blue", 3, "BT1-030", "Gommamon_Placeholder.png"),
-            new Card("Frisbeemon 4", "hey", "purple", 69, "9001", "meme.png"),
-            new Card("Frisbeemon 5", "crazy", "purple", 69, "9001", "meme.png"),
-            new Card("Gomamon", "Cool", "Blue", 3, "BT1-030", "Gommamon_Placeholder.png"),
+            new Card("Agumon", "Digimon", "Red", 3, "BT1-010", "Agumon.png"),
+            new Card("Ikkakumon", "Digimon", "Blue", 4, "BT1-034", "Ikkakumon.png"),
+            new Card("Gomamon", "Digimon", "Blue", 3, "BT1-030", "Gomamon.png"),
+            new Card("Frisbeemon", "hey", "purple", 69, "9001", "meme.png"),
+            new Card("War Greymon", "Digimon", "Red", 6, "BT1-025", "WarGreymon.png"),
+            new Card("Rice Gomamon", "Cool", "Blue", 3, "BT1-030", "Gommamon_Placeholder.png"),
             new Card("Frisbeemon 6", "norm", "purple", 69, "9001", "meme.png"),
             new Card("Frisbeemon 7", "norm", "purple", 69, "9001", "meme.png"),
             new Card("Gomamon", "Cool", "Blue", 3, "BT1-030", "Gommamon_Placeholder.png"),
