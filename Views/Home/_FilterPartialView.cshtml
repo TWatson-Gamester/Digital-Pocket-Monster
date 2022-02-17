@@ -6,12 +6,18 @@
 
 <div class="col-md-2 sidebar">
     <div class="sidebar-sticky">
-        <ul class="nav flex-column">
-            <li class="nav-item">HI</li>
-            <li class="nav-item">HI</li>
-            <li class="nav-item">HI</li>
-            <li class="nav-item">HI</li>
-            <li class="nav-item">HI</li>
-        </ul>
+        <div class="nav flex-column">
+            <div class=" col-2">
+                <label>Filter</label>
+                <form asp-controller="Home" asp-action="FilterCards" method="post">
+                    <input type="search" name="color" placeholder="color" />
+                    <input type="search" name="cardType" placeholder="cardType" />
+                    <input type="search" name="level" placeholder="level" />
+                    <input type="search" name="name" placeholder="name" />
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
+

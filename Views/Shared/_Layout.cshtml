@@ -9,51 +9,60 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar sticky-top navbar-expand-sm navbar-light bg-white border-bottom box-shadow">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"> <img class="logosize" src="~/images/Gommamon_Placeholder.png" height="50" /> </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Collection">Collection</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="DeckBuilding">Deck Builder</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Database">Database</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Store">Store</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark d-flex justify-content-between" asp-area="" asp-controller="Home" asp-action="Index">Login / Signup {Replace Action}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark d-flex justify-content-between" asp-area="" asp-controller="Home" asp-action="Profile">Profile {Replace Later}</a> 
-                        </li>
-                    </ul>
+                <div class="d-flex">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"> <img class="logosize" src="~/images/Gommamon_Placeholder.png" height="50" /> </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse">
+                        <div class="d-flex justify-content-md-between">
+                            <ul class="navbar-nav me-auto my-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Collection">Collection</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="DeckBuilding">Deck Builder</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Database">Database</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Store">Store</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="d-flex justify-content-md-between">
+                            <form class="d-flex" asp-controller="Home" asp-action="SeachCards" method="post">
+                                <input class="me-2" type="search" name="srchKeyTerms" placeholder="Search" />
+                                <button type="submit">Submit</button>
+                            </form>
+
+                            <ul class="navbar-nav me-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark d-flex " asp-area="" asp-controller="Home" asp-action="Index">Login / Signup {Replace Action}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark d-flex " asp-area="" asp-controller="Home" asp-action="Profile">Profile {Replace Later}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </nav>
     </header>
     <div class="d-block container-fluid">
         <main role="main" class="pb-3">
-            @RenderBody();
+            @RenderBody()
         </main>
     </div>
 
