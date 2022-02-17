@@ -10,79 +10,79 @@ namespace Digital_Pocket_Monster.Models
     public class Card
     {
         [Required] [Column(TypeName = "varchar(25)")]
-        public string name { get; set; }
+        public string Name { get; set; }
         [Required] [Column(TypeName = "varchar(10)")]
-        public string cardType { get; set; }
+        public string CardType { get; set; }
         [Required] [Column(TypeName = "varchar(10)")]
-        public string color { get; set; }
+        public string Color { get; set; }
         [Required]
-        public int level { get; set; }
+        public int Level { get; set; }
         [Required] [Column(TypeName = "varchar(20)")]
-        public string cardNumber { get; set; }
+        public string CardNumber { get; set; }
         [Required] [Column(TypeName = "varchar(75)")]
-        public string image { get; set; }
+        public string Image { get; set; }
         // rest of the card info needed - Tobie
         [Required]
         public int ID { get; set; }
-        [Required] [Column(TypeName = "varchar(250)")]
-        public string cardDescription { get; set; }
+        //[Required] [Column(TypeName = "varchar(250)")]
+        //public string cardDescription { get; set; }
         [Required] [Column(TypeName = "varchar(10)")]
-        public string digivolveColor { get; set; }
+        public string DigivolveColor { get; set; }
         [Required]
-        public int playCost { get; set; }
+        public int PlayCost { get; set; }
         [Required]
-        public int cardPower { get; set; }
+        public int CardPower { get; set; }
         [Required] [Column(TypeName = "varchar(25)")]
-        public string race { get; set; }
+        public string Race { get; set; }
         [Required] [Column(TypeName = "varchar(25)")]
-        public string attribute { get; set; }
+        public string Attribute { get; set; }
         [Required] [Column(TypeName = "varchar(10)")]
-        public string stageLevel { get; set; }
+        public string StageLevel { get; set; }
         [Required] [Column(TypeName = "varchar(15)")]
-        public string rarity { get; set; }
+        public string Rarity { get; set; }
         [Required]
-        public int amountOwned { get; set; } = 0;
-        private int packID { get; set; }
-        private int? deckID { get; set; }
+        public int AmountOwned { get; set; } = 0;
+        private int PackID { get; set; }
+        private int? DeckID { get; set; }
 
         public Card() {}
 
-        public Card(string name, string cardType, string color, int level, string cardNumber, string image)
+        public Card(string name, string cardType, string color, int? level, string cardNumber, string image)
         {
-            this.name = name;
-            this.cardType = cardType;
-            this.color = color;
-            this.level = level;
-            this.cardNumber = cardNumber;
-            this.image = image;
+            this.Name = name;
+            this.CardType = cardType;
+            this.Color = color;
+            this.Level = level;
+            this.CardNumber = cardNumber;
+            this.Image = image;
         }
 
         public Card(string name, string cardType, string color, int level, string cardNumber, string image, 
                     int id, string digiColor, int playCost, int cardPower, string race, string attribute, 
                     string stageLevel, string rarity, int amountOwned, int pack, int? deck = null)
         {
-            this.name = name;
-            this.cardType = cardType;
-            this.color = color;
-            this.level = level;
-            this.cardNumber = cardNumber;
-            this.image = image;
+            this.Name = name;
+            this.CardType = cardType;
+            this.Color = color;
+            this.Level = level;
+            this.CardNumber = cardNumber;
+            this.Image = image;
             this.ID = id;
-            this.digivolveColor = digiColor;
-            this.playCost = playCost;
-            this.cardPower = cardPower;
-            this.race = race;
-            this.attribute = attribute;
-            this.stageLevel = stageLevel;
-            this.rarity = rarity;
-            this.amountOwned = amountOwned;
-            this.packID = pack;
-            this.deckID = deck; // might of done the deck part wrong ???
+            this.DigivolveColor = digiColor;
+            this.PlayCost = playCost;
+            this.CardPower = cardPower;
+            this.Race = race;
+            this.Attribute = attribute;
+            this.StageLevel = stageLevel;
+            this.Rarity = rarity;
+            this.AmountOwned = amountOwned;
+            this.PackID = pack;
+            this.DeckID = deck; // might of done the deck part wrong ???
         }
 
         public override string ToString()
         {
-            return $"{name} - {cardType} - {color} - {level} - {cardNumber}";
+            return $"{Name} - {CardType} - {Color} - {Level} - {CardNumber}";
         }
     }
 }

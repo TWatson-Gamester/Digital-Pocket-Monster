@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Digital_Pocket_Monster.Migrations
 {
     [DbContext(typeof(DigimonContext))]
-    [Migration("20220216154602_InitialDBCreation")]
-    partial class InitialDBCreation
+    [Migration("20220216164354_initDb")]
+    partial class initDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,20 +28,25 @@ namespace Digital_Pocket_Monster.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("email")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
 
-                    b.Property<string>("firstName")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("varchar(15)");
 
-                    b.Property<string>("lastName")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("varchar(25)");
 
-                    b.Property<string>("password")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
 
-                    b.Property<string>("username")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
 
                     b.HasKey("ID");
 
@@ -55,48 +60,57 @@ namespace Digital_Pocket_Monster.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("amountOwned")
+                    b.Property<int>("AmountOwned")
                         .HasColumnType("int");
 
-                    b.Property<string>("attribute")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("cardNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("cardPower")
-                        .HasColumnType("int");
-
-                    b.Property<string>("cardType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("color")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("digivolveColor")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("image")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("level")
-                        .HasColumnType("int");
-
-                    b.Property<string>("name")
+                    b.Property<string>("Attribute")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(25)");
 
-                    b.Property<int>("playCost")
+                    b.Property<string>("CardNumber")
+                        .IsRequired()
+                        .HasColumnType("varchar(20)");
+
+                    b.Property<int>("CardPower")
                         .HasColumnType("int");
 
-                    b.Property<string>("race")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("CardType")
+                        .IsRequired()
+                        .HasColumnType("varchar(10)");
 
-                    b.Property<string>("rarity")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Color")
+                        .IsRequired()
+                        .HasColumnType("varchar(10)");
 
-                    b.Property<string>("stageLevel")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("DigivolveColor")
+                        .IsRequired()
+                        .HasColumnType("varchar(10)");
+
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("varchar(75)");
+
+                    b.Property<int>("Level")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("varchar(25)");
+
+                    b.Property<int>("PlayCost")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Race")
+                        .IsRequired()
+                        .HasColumnType("varchar(25)");
+
+                    b.Property<string>("Rarity")
+                        .IsRequired()
+                        .HasColumnType("varchar(15)");
+
+                    b.Property<string>("StageLevel")
+                        .IsRequired()
+                        .HasColumnType("varchar(10)");
 
                     b.HasKey("ID");
 
@@ -105,15 +119,16 @@ namespace Digital_Pocket_Monster.Migrations
 
             modelBuilder.Entity("Digital_Pocket_Monster.Models.Deck", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int?>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("deckName")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("DeckName")
+                        .IsRequired()
+                        .HasColumnType("varchar(25)");
 
-                    b.Property<int?>("userID")
+                    b.Property<int?>("UserID")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
@@ -123,13 +138,14 @@ namespace Digital_Pocket_Monster.Migrations
 
             modelBuilder.Entity("Digital_Pocket_Monster.Models.Pack", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int?>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("packName")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("PackName")
+                        .IsRequired()
+                        .HasColumnType("varchar(25)");
 
                     b.HasKey("ID");
 

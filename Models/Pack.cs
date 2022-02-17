@@ -10,16 +10,16 @@ namespace Digital_Pocket_Monster.Models
     public class Pack
     {
         [Required]
-        public int ID { get; set; }
+        public int? ID { get; set; }
         [Required] [Column(TypeName = "varchar(25)")]
-        public string packName { get; set; }
+        public string PackName { get; set; }
 
         public Pack() { }
 
         public Pack(int id, string packName)
         {
             this.ID = id;
-            this.packName = packName;
+            this.PackName = packName;
         }
     }
 }

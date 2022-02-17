@@ -2,7 +2,7 @@
 
 namespace Digital_Pocket_Monster.Migrations
 {
-    public partial class InitialDBCreation : Migration
+    public partial class initDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,11 +12,11 @@ namespace Digital_Pocket_Monster.Migrations
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    firstName = table.Column<string>(type: "varchar(15)", nullable: false),
-                    lastName = table.Column<string>(type: "varchar(25)", nullable: false),
-                    username = table.Column<string>(type: "varchar(50)", nullable: false),
-                    password = table.Column<string>(type: "varchar(50)", nullable: false),
-                    email = table.Column<string>(type: "varchar(100)", nullable: false)
+                    FirstName = table.Column<string>(type: "varchar(15)", nullable: false),
+                    LastName = table.Column<string>(type: "varchar(25)", nullable: false),
+                    Username = table.Column<string>(type: "varchar(50)", nullable: false),
+                    Password = table.Column<string>(type: "varchar(50)", nullable: false),
+                    Email = table.Column<string>(type: "varchar(100)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -29,21 +29,20 @@ namespace Digital_Pocket_Monster.Migrations
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    name = table.Column<string>(type: "varchar(25)", nullable: false),
-                    description = table.Column<string>(type: "varchar(250)", nullable: false),
-                    cardType = table.Column<string>(type: "varchar(10)", nullable: false),
-                    color = table.Column<string>(type: "varchar(10)", nullable: false),
-                    level = table.Column<int>(type: "int", nullable: false),
-                    cardNumber = table.Column<string>(type: "varchar(20)", nullable: false),
-                    image = table.Column<string>(type: "varchar(75)", nullable: false),
-                    digivolveColor = table.Column<string>(type: "varchar(10)", nullable: false),
-                    playCost = table.Column<int>(type: "int", nullable: false),
-                    cardPower = table.Column<int>(type: "int", nullable: false),
-                    race = table.Column<string>(type: "varchar(25)", nullable: false),
-                    attribute = table.Column<string>(type: "varchar(25)", nullable: false),
-                    stageLevel = table.Column<string>(type: "varchar(10)", nullable: false),
-                    rarity = table.Column<string>(type: "varchar(15)", nullable: false),
-                    amountOwned = table.Column<int>(type: "int", nullable: false)
+                    Name = table.Column<string>(type: "varchar(25)", nullable: false),
+                    CardType = table.Column<string>(type: "varchar(10)", nullable: false),
+                    Color = table.Column<string>(type: "varchar(10)", nullable: false),
+                    Level = table.Column<int>(type: "int", nullable: false),
+                    CardNumber = table.Column<string>(type: "varchar(20)", nullable: false),
+                    Image = table.Column<string>(type: "varchar(75)", nullable: false),
+                    DigivolveColor = table.Column<string>(type: "varchar(10)", nullable: false),
+                    PlayCost = table.Column<int>(type: "int", nullable: false),
+                    CardPower = table.Column<int>(type: "int", nullable: false),
+                    Race = table.Column<string>(type: "varchar(25)", nullable: false),
+                    Attribute = table.Column<string>(type: "varchar(25)", nullable: false),
+                    StageLevel = table.Column<string>(type: "varchar(10)", nullable: false),
+                    Rarity = table.Column<string>(type: "varchar(15)", nullable: false),
+                    AmountOwned = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -56,8 +55,8 @@ namespace Digital_Pocket_Monster.Migrations
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    deckName = table.Column<string>(type: "varchar(25)", nullable: false),
-                    userID = table.Column<int>(type: "int", nullable: true)
+                    DeckName = table.Column<string>(type: "varchar(25)", nullable: false),
+                    UserID = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -70,7 +69,7 @@ namespace Digital_Pocket_Monster.Migrations
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    packName = table.Column<string>(type: "varchar(25)", nullable: false)
+                    PackName = table.Column<string>(type: "varchar(25)", nullable: false)
                 },
                 constraints: table =>
                 {

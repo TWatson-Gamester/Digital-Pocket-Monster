@@ -12,26 +12,26 @@ namespace Digital_Pocket_Monster.Models
         [Required]
         public int ID { get; set; }
         [Required] [Column(TypeName = "varchar(15)")]
-        public string firstName { get; set; }
+        public string FirstName { get; set; }
         [Required] [Column(TypeName = "varchar(25)")]
-        public string lastName { get; set; }
+        public string LastName { get; set; }
         [Required] [Column(TypeName = "varchar(50)")]
-        public string username { get; set; }
+        public string Username { get; set; }
         [Required] [Column(TypeName = "varchar(50)")]
-        public string password { get; set; }
+        public string Password { get; set; }
         [Required] [Column(TypeName = "varchar(100)")]
-        public string email { get; set; }
+        public string Email { get; set; }
 
         public AccountInfo() { }
 
         public AccountInfo(int id, string firstName, string lastname, string username, string password, string email)
         {
             this.ID = id;
-            this.firstName = firstName;
-            this.lastName = lastname;
-            this.username = username;
-            this.password = password;
-            this.email = email; 
+            this.FirstName = firstName;
+            this.LastName = lastname;
+            this.Username = username;
+            this.Password = password;
+            this.Email = email; 
         }
     }
 }
