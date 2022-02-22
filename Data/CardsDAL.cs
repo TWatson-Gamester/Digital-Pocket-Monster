@@ -44,7 +44,7 @@ namespace Digital_Pocket_Monster.Data
             }
             if(!string.IsNullOrWhiteSpace(name))
             {
-                query = query.Where(c => c.Name.ToLower().Equals(name.ToLower()));
+                query = query.Where(c => c.Name.ToLower().Contains(name.ToLower()));
             }
             if(!string.IsNullOrWhiteSpace(cardNumber))
             {
