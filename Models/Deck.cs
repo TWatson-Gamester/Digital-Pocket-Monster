@@ -11,22 +11,22 @@ namespace Digital_Pocket_Monster.Models
     {
         [Required]
         public int? ID { get; set; }
-        [Required] [Column(TypeName = "varchar(25)")]
 
         [MaxLength(450)]
-        public string UserId { get; set; }
+        public string UserID { get; set; }
 
+        [Required] [Column(TypeName = "varchar(25)")]
         public string DeckName { get; set; }
 
-        public int? UserID { get; set; }
+        //public int? UserIDold { get; set; } // this is unnecessary now I think - Tobie 
 
         public Deck() { }
 
-        public Deck(int id, string deckName, int? userID)
+        public Deck(int id, string deckName) //, int? userID
         {
             this.ID = id;
             this.DeckName = deckName;
-            this.UserID = userID; 
+            //this.UserID = userID; 
         }
     }
 }

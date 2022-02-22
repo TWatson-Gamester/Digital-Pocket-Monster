@@ -10,7 +10,7 @@ namespace Digital_Pocket_Monster.Models
     public class Card
     {
         [MaxLength(450)]
-        public string UserId { get; set; }
+        public string UserID { get; set; }
 
         [Required] [Column(TypeName = "varchar(25)")]
         public string Name { get; set; }
