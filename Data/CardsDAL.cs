@@ -9,20 +9,14 @@ namespace Digital_Pocket_Monster.Data
 {
     public class CardsDAL : IDataAccessLayerCards
     {
-        private static List<Card> cardList = new List<Card>()
+        
+
+        private DigimonContext db;
+        
+        public CardsDAL(DigimonContext indb)
         {
-            new Card("Agumon", "Digimon", "Red", 3, "BT1-010", "Agumon.png"),
-            new Card("Ikkakumon", "Digimon", "Blue", 4, "BT1-034", "Ikkakumon.png"),
-            new Card("Gomamon", "Digimon", "Blue", 3, "BT1-030", "Gomamon.png"),
-            new Card("Frisbeemon", "hey", "purple", 69, "9001", "meme.png"),
-            new Card("War Greymon", "Digimon", "Red", 6, "BT1-025", "WarGreymon.png"),
-            new Card("Rice Gomamon", "Cool", "Blue", 3, "BT1-030", "Gommamon_Placeholder.png"),
-            new Card("Frisbeemon 6", "norm", "purple", 69, "9001", "meme.png"),
-            new Card("Frisbeemon 7", "norm", "purple", 69, "9001", "meme.png"),
-            new Card("Gomamon", "Cool", "Blue", 3, "BT1-030", "Gommamon_Placeholder.png"),
-            new Card("Frisbeemon 8", "hey", "purple", 69, "9001", "meme.png"),
-            new Card("Ghost", "OHNO", "purple", 69, "9001", "meme.png")
-        };
+            this.db = indb;
+        }
 
 
         public void addCard(Card card)
@@ -30,23 +24,68 @@ namespace Digital_Pocket_Monster.Data
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Card> filterCards(string color, string cardType, int? level, string name)
+        public IEnumerable<Card> filterCards(string color, string cardType, int? level, string name, string cardNumber, int? id,
+            string digiColor, int? playCost, int? cardPower, string race, string attribute,
+            string stageLevel, string rarity)
         {
-            List<Card> tmpCards = new List<Card>();
+            IQueryable<Card> query = db.Cards;
 
-            bool colorCheck = color != null;
-            bool typeCheck = cardType != null;
-            bool levelCheck = level != null;
-            bool nameCheck = name != null;
-
-            foreach(var c in cardList)
+            if(!string.IsNullOrWhiteSpace(color))
             {
-                if((!colorCheck || c.Color.ToUpper().Contains(color.ToUpper())) && (!typeCheck || (c.CardType.ToUpper().Contains(cardType.ToUpper()))) && (!level.HasValue || c.Level == level.Value ) && (!nameCheck || c.Name.ToUpper().Contains(name.ToUpper())))
-                {
-                    tmpCards.Add(c);
-                }
+                query = query.Where(c => c.Color.ToLower().Equals(color.ToLower()));
             }
-            return tmpCards;
+            if(!string.IsNullOrWhiteSpace(cardType))
+            {
+                query = query.Where(c => c.CardType.ToLower().Equals(cardType.ToLower()));
+            }
+            if(level.HasValue)
+            {
+                query = query.Where(c => c.Level == level.Value);
+            }
+            if(!string.IsNullOrWhiteSpace(name))
+            {
+                query = query.Where(c => c.Name.ToLower().Equals(name.ToLower()));
+            }
+            if(!string.IsNullOrWhiteSpace(cardNumber))
+            {
+                query = query.Where(c => c.CardNumber.ToLower().Equals(cardNumber.ToLower()));
+            }
+            if(id.HasValue)
+            {
+                query = query.Where(c => c.ID == id.Value);
+            }
+            if(!string.IsNullOrWhiteSpace(digiColor))
+            {
+                query = query.Where(c => c.DigivolveColor.ToLower().Equals(digiColor.ToLower()));
+            }
+            if(playCost.HasValue)
+            {
+                query = query.Where(c => c.PlayCost == playCost.Value);
+            }
+            if(cardPower.HasValue)
+            {
+                query = query.Where(c => c.CardPower == cardPower.Value);
+            }
+            if(!string.IsNullOrWhiteSpace(race))
+            {
+                query = query.Where(c => c.Race.ToLower().Equals(race.ToLower()));
+            }
+            if(!string.IsNullOrWhiteSpace(attribute))
+            {
+                query = query.Where(c => c.Attribute.ToLower().Equals(attribute.ToLower()));
+            }
+            if(!string.IsNullOrWhiteSpace(stageLevel))
+            {
+                query = query.Where(c => c.StageLevel.ToLower().Equals(stageLevel.ToLower()));
+            }
+            if(!string.IsNullOrWhiteSpace(rarity))
+            {
+                query = query.Where(c => c.Rarity.ToLower().Equals(rarity.ToLower()));
+            }
+
+            return query.ToList();
+
+           
         }
 
         public Card getCard(int? id)
@@ -61,25 +100,19 @@ namespace Digital_Pocket_Monster.Data
 
         public IEnumerable<Card> searchCards(string searchCard)
         {
-            if(string.IsNullOrEmpty(searchCard))
-            {
-                return cardList;
-            }
+            return db.Cards.Where(c => c.Name.ToLower().Contains(searchCard.ToLower())).ToList();
 
-            List<Card> tmpCards = new List<Card>();
-            foreach(var c in cardList)
-            {
-                if(c.Name.ToUpper().Contains(searchCard.ToUpper()))
-                {
-                    tmpCards.Add(c);
-                }
-            }
-            return tmpCards;
         }
 
         public IEnumerable<Card> showCards()
         {
-            return cardList;
+            return db.Cards.ToList();
+        }
+
+        public void UpdateCards(Card card)
+        {
+            db.Update(card);
+            db.SaveChanges();
         }
     }
 }
