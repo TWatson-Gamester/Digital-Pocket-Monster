@@ -8,7 +8,7 @@ namespace Digital_Pocket_Monster.Interface
 {
     public interface IDataAccessLayer
     {
-        IEnumerable<Card> showCards();
+        IEnumerable<Card> showCards(string userId);
         IEnumerable<Card> searchCards(string searchCard);
         IEnumerable<Card> filterCards(string color, string cardType, int? level, string name, string cardNumber, int? id, string digiColor, int? playCost, int? cardPower, string race, string attribute,
             string stageLevel, string rarity);

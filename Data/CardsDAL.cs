@@ -104,9 +104,9 @@ namespace Digital_Pocket_Monster.Data
 
         }
 
-        public IEnumerable<Card> showCards()
+        public IEnumerable<Card> showCards(string userId)
         {
-            return db.Cards.ToList();
+            return db.Cards.Where(m => m.UserID == userId).ToList();
         }
 
         public void UpdateCards(Card card)
