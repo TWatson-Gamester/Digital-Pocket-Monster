@@ -13,6 +13,9 @@ namespace Digital_Pocket_Monster.Models
         public int? ID { get; set; }
         [Required] [Column(TypeName = "varchar(25)")]
 
+        [MaxLength(450)]
+        public string UserId { get; set; }
+
         public string DeckName { get; set; }
 
         public int? UserID { get; set; }
