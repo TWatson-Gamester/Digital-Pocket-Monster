@@ -8,9 +8,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace Digital_Pocket_Monster.Controllers
 {
+    //[Authorize] //if we want to force people to log in 
     public class HomeController : Controller
     {
         //private readonly ILogger<HomeController> _logger;
@@ -37,6 +40,10 @@ namespace Digital_Pocket_Monster.Controllers
         }
         public IActionResult Collection()
         {
+            string userID = User.FindFirstValue(ClaimTypes.NameIdentifier); // wacky id 
+            string email = User.FindFirstValue(ClaimTypes.Email); // gets email 
+            string name = User.FindFirstValue(ClaimTypes.Name); //returns user@user.com/en-us/aspnet/core/security/authentication/identity-configuration
+
             return View(dal.showCards());
         }
 

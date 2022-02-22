@@ -53,6 +53,7 @@ namespace Digital_Pocket_Monster
 
             app.UseRouting();
 
+            app.UseAuthentication(); 
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -60,6 +61,7 @@ namespace Digital_Pocket_Monster
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
         }
     }
