@@ -35,6 +35,10 @@ namespace Digital_Pocket_Monster.Controllers
         {
             return View();
         }
+        public IActionResult Deck()
+        {
+            return View();
+        }
         public IActionResult Collection()
         {
             return View(dal.showCards());
