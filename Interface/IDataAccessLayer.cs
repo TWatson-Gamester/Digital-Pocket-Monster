@@ -6,7 +6,7 @@ using Digital_Pocket_Monster.Models;
 
 namespace Digital_Pocket_Monster.Interface
 {
-    public interface IDataAccessLayer
+    public interface IDataAccessLayerCards
     {
         IEnumerable<Card> showCards();
         IEnumerable<Card> searchCards(string searchCard);

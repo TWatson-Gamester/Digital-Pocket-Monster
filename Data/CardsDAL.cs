@@ -7,7 +7,7 @@ using Digital_Pocket_Monster.Models;
 
 namespace Digital_Pocket_Monster.Data 
 {
-    public class CardsDAL : IDataAccessLayer
+    public class CardsDAL : IDataAccessLayerCards
     {
         private static List<Card> cardList = new List<Card>()
         {

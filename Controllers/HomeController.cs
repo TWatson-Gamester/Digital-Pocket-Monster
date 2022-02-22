@@ -20,8 +20,8 @@ namespace Digital_Pocket_Monster.Controllers
         //    _logger = logger;
         //}
 
-        IDataAccessLayer dal;
-        public HomeController (IDataAccessLayer indal)
+        IDataAccessLayerCards dal;
+        public HomeController (IDataAccessLayerCards indal)
         {
             dal = indal;
         }
