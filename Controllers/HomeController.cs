@@ -35,6 +35,10 @@ namespace Digital_Pocket_Monster.Controllers
         {
             return View();
         }
+        public IActionResult Deck()
+        {
+            return View();
+        }
         public IActionResult Collection()
         {
             return View(dal.showCards());
@@ -46,9 +50,12 @@ namespace Digital_Pocket_Monster.Controllers
             return View("Collection", dal.searchCards(srchKeyTerms));
         }
 
-        public IActionResult FilterCards(string color, string cardType, int? level, string name)
+        public IActionResult FilterCards(string color, string cardType, int? level, string name, string cardNumber, int? id,
+            string digiColor, int? playCost, int? cardPower, string race, string attribute,
+            string stageLevel, string rarity)
         {
-            return View("Collection", dal.filterCards(color, cardType, level, name)); 
+            return View("Collection", dal.filterCards(color, cardType, level, name , cardNumber, id, digiColor, playCost, cardPower,
+                race, attribute, stageLevel, rarity)); 
         }
         public IActionResult Profile()
         {

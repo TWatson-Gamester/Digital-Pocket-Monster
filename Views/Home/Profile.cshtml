@@ -2,27 +2,29 @@
     ViewData["Title"] = "Yu-gi";
     //As a heads up this page is not fully completed yet, Nothing is styled nor is it functioning - Tommy
 }
+<div class="row">
+    <div class="col-12">
+        <h1>Profile</h1>
+    </div>
 
-<div class="text-center">
-    <h1>Profile</h1>
-</div>
+    <div class="col-12">
 
-<div class="col table-bordered">
-    <div class="row">
-        <div class="border">
-            <p>Profile Image Goes Here</p>
+        <div class="d-flex justify-content-center border">
+        <div class="">
+            @*<p>Profile Image Goes Here</p>*@
             <img src="~/images/Gommamon_Placeholder.png" height="250" width="200" />
         </div>
-        <div class="border">
-            <p>Profile Info Goes Here</p>
-            <p>Name: Some Weirdo</p>
-            <p>Email: ThisGuyIsWeird@someEmail.com</p>
-            <p>Username: kasdfpqpfknapdkjfakjf</p>
-            <p>Password: ********** @*Don't actually show how long their password is, just keep it to 10 *'s*@</p>
+            <div>
+                <p>Profile Info Goes Here</p>
+                <p>Name: Some Weirdo</p>
+                <p>Email: ThisGuyIsWeird@someEmail.com</p>
+                <p>Username: kasdfpqpfknapdkjfakjf</p>
+                <p>Password: ********** Don't actually show how long their password is, just keep it to 10 *'s</p>
+            </div>
         </div>
     </div>
-    <div class="row text-center text-black-50">
-        <div>
+    <div class="row">
+        <div class="d-flex justify-content-center">
             <p>Decks go here</p>
             <button class="border">Deck 1</button>
             <button class="border">Deck 2</button>
@@ -31,15 +33,16 @@
             <button class="border">Deck 5</button>
         </div>
     </div>
-</div>
-<div>
-    <form asp-controller="Home" asp-action="EditProfile">
-        <button type="submit">Edit Profile</button>
-    </form>
-    <form asp-controller="Home" asp-action="ChangePassword">
-        <button type="submit">Change Password</button>
-    </form>
-    <form asp-controller="Home" asp-action="DeleteAccount">
-        <button type="submit">Delete Account</button>
-    </form>
+
+    <div>
+        <form asp-controller="Home" asp-action="EditProfile">
+            <button type="submit">Edit Profile</button>
+        </form>
+        <form asp-controller="Home" asp-action="ChangePassword">
+            <button type="submit">Change Password</button>
+        </form>
+        <form asp-controller="Home" asp-action="DeleteAccount">
+            <button type="submit">Delete Account</button>
+        </form>
+    </div>
 </div>
