@@ -70,7 +70,7 @@ namespace Digital_Pocket_Monster.Controllers
         }
         public IActionResult DeckBuilding()
         {
-            return View();
+            return View(dal.showCards(User.FindFirstValue(ClaimTypes.NameIdentifier)));
         }
 
         public IActionResult Database()
