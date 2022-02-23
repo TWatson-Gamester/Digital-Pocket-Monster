@@ -72,9 +72,9 @@ namespace Digital_Pocket_Monster.Data
             }
         }
 
-        public IEnumerable<Deck> showDecks()
+        public IEnumerable<Deck> showDecks(string userId)
         {
-            throw new NotImplementedException();
+            return db.Decks.Where(m => m.UserID == userId).ToList();
         }
     }
 }

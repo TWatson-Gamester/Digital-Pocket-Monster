@@ -29,7 +29,7 @@ namespace Digital_Pocket_Monster.Areas.Identity
                     options.Password.RequireUppercase = false;
                     options.Password.RequiredLength = 6;
                     options.Password.RequiredUniqueChars = 0;
-                    options.User.RequireUniqueEmail = false;
+                    options.User.RequireUniqueEmail = true;
                 });
             });
         }

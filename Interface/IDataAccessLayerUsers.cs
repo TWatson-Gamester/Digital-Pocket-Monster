@@ -6,13 +6,9 @@ using System.Threading.Tasks;
 
 namespace Digital_Pocket_Monster.Interface
 {
-    interface IDataAccessLayerDecks
+    interface IDataAccessLayerUsers
     {
         IEnumerable<Deck> showDecks(string userId);
-        void addDeck(Deck deck);
-        void removeDeck(int? id);
         Deck getDeck(int? id);
-        void removeCard(int? deckId, int? cardId);
-        void addCard(int? id, Card card);
     }
 }
