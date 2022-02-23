@@ -110,6 +110,10 @@ namespace Digital_Pocket_Monster.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(10)");
 
+                    b.Property<string>("UserID")
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("ID");
 
                     b.ToTable("Cards");
@@ -126,8 +130,9 @@ namespace Digital_Pocket_Monster.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(25)");
 
-                    b.Property<int?>("UserID")
-                        .HasColumnType("int");
+                    b.Property<string>("UserID")
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("ID");
 

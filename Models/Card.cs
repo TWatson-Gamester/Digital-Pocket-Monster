@@ -9,6 +9,9 @@ namespace Digital_Pocket_Monster.Models
 {
     public class Card
     {
+        [MaxLength(450)]
+        public string UserID { get; set; }
+
         [Required] [Column(TypeName = "varchar(25)")]
         public string Name { get; set; }
         [Required] [Column(TypeName = "varchar(10)")]
@@ -24,8 +27,6 @@ namespace Digital_Pocket_Monster.Models
         // rest of the card info needed - Tobie
         [Required]
         public int ID { get; set; }
-        //[Required] [Column(TypeName = "varchar(250)")]
-        //public string cardDescription { get; set; }
         [Required] [Column(TypeName = "varchar(10)")]
         public string DigivolveColor { get; set; }
         [Required]
