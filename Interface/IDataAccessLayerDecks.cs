@@ -9,10 +9,10 @@ namespace Digital_Pocket_Monster.Interface
     interface IDataAccessLayerDecks
     {
         IEnumerable<Deck> showDecks();
-        IEnumerable<Deck> saveDeck(string deckName);
+        void addDeck(Deck deck);
         void removeDeck(int? id);
         Deck getDeck(int? id);
-        void removeCard(int? id);
-        void addCard(Card card);
+        void removeCard(int? deckId, int? cardId);
+        void addCard(int? id, Card card);
     }
 }

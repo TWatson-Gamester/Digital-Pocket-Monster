@@ -9,41 +9,67 @@ namespace Digital_Pocket_Monster.Data
 {
     public class DecksDAL : IDataAccessLayerDecks
     {
-        //deck list, add card/remove card, save decks, delete the deck, NO FILTER OR SEARCH, name deck
-        private static List<Deck> deckList = new List<Deck>()
+        private DigimonContext db;
+
+        public DecksDAL(DigimonContext indb)
         {
+            this.db = indb;
+        }
 
-        };
-
-        public void addCard(Card card)
+        public void addCard(int? deckId, Card card)
         {
-            int id;
-            getDeck(id);
+            Deck foundDeck = getDeck(deckId);
 
-            if(id != null)
+            if(foundDeck != null)
             {
-
+                db.Add(card);
+                db.SaveChanges();
             }
+        }
+
+        public void addDeck(Deck deck)
+        {
+            if (deck.ID >= 5) return;
+            db.Add(deck);
+            db.SaveChanges();
         }
 
         public Deck getDeck(int? id)
         {
-            return deckList.ToList();
+            Deck foundDeck = null;
+
+            if(id != null)
+            {
+                db.Decks.ToList().ForEach(d =>
+                {
+                    if(d.ID == id)
+                    {
+                        foundDeck = d;
+                    }
+                });
+            }
+            return foundDeck;
         }
 
-        public void removeCard(int? id)
+        public void removeCard(int? deckId, int? cardId)
         {
-            throw new NotImplementedException();
+            Deck foundDeck = getDeck(deckId);
+
+            if (foundDeck != null)
+            {
+                db.Remove(cardId);
+                db.SaveChanges();
+            }
         }
 
         public void removeDeck(int? id)
         {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Deck> saveDeck(string deckName)
-        {
-            throw new NotImplementedException();
+            Deck foundDeck = getDeck(id);
+            if (foundDeck != null)
+            {
+                db.Remove(foundDeck);
+                db.SaveChanges();
+            }
         }
 
         public IEnumerable<Deck> showDecks()
