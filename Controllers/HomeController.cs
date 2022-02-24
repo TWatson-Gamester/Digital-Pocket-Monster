@@ -68,10 +68,6 @@ namespace Digital_Pocket_Monster.Controllers
         {
             return View();
         }
-        public IActionResult DeckBuilding()
-        {
-            return View();
-        }
 
         public IActionResult Database()
         {
