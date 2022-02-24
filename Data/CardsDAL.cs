@@ -9,7 +9,7 @@ namespace Digital_Pocket_Monster.Data
 {
     public class CardsDAL : IDataAccessLayerCards
     {
-        
+        public Card card;
 
         private DigimonContext db;
         
@@ -88,9 +88,17 @@ namespace Digital_Pocket_Monster.Data
            
         }
 
-        public Card getCard(int? id)
+        public Card getCard(string cardNumber)
         {
-            throw new NotImplementedException();
+            card.CardNumber = cardNumber;
+            IQueryable<Card> query = db.Cards;
+
+            if (!string.IsNullOrWhiteSpace(cardNumber))
+            {
+                return (Card)query.Where(cn => cn.CardNumber.ToLower().Equals(cardNumber.ToLower()));
+            }
+
+            return null;
         }
 
         public void removeCard(int? id)

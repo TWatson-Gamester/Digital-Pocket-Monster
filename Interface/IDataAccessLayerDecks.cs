@@ -14,5 +14,6 @@ namespace Digital_Pocket_Monster.Interface
         Deck getDeck(int? id);
         void removeCard(int? deckId, int? cardId);
         void addCard(int? id, Card card);
+        Card getCard(string cardNumber);
     }
 }
