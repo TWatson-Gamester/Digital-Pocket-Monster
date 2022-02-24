@@ -9,6 +9,7 @@ namespace Digital_Pocket_Monster.Data
 {
     public class DecksDAL : IDataAccessLayerDecks
     {
+        private CardsDAL cdal;
         private DigimonContext db;
 
         public DecksDAL(DigimonContext indb)
@@ -32,6 +33,12 @@ namespace Digital_Pocket_Monster.Data
             if (deck.ID >= 5) return;
             db.Add(deck);
             db.SaveChanges();
+        }
+
+        public Card getCard(string cardNumber)
+        {
+            Card card = cdal.getCard(cardNumber);
+            return card;
         }
 
         public Deck getDeck(int? id)
