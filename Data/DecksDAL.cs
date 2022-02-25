@@ -10,6 +10,7 @@ namespace Digital_Pocket_Monster.Data
     public class DecksDAL : IDataAccessLayerDecks
     {
         private DigimonContext db;
+        public int numOfCards;
 
         public DecksDAL(DigimonContext indb)
         {
@@ -22,6 +23,7 @@ namespace Digital_Pocket_Monster.Data
 
             if(foundDeck != null)
             {
+                numOfCards++;
                 db.Add(card);
                 db.SaveChanges();
             }
@@ -57,6 +59,7 @@ namespace Digital_Pocket_Monster.Data
 
             if (foundDeck != null)
             {
+                numOfCards--;
                 db.Remove(cardId);
                 db.SaveChanges();
             }

@@ -3,75 +3,64 @@
     //As a heads up this is not the final product of this page, I'm just setting things up ~ Tommy
 }
 @model IEnumerable<Card>
-<h1>Deck Building</h1>
+<h1 class="d-flex justify-content-center">Deck Building</h1>
 <div class="row">
     <div class="col-6 border border-dark border-3">
-        <div class="d-flex col-12">
+        <div class="d-flex justify-content-center">
             <div class="col-2 align-self-start">
                 <p>Digi-eggs: #/5 </p>
             </div>
             <div class="col-6 align-self-center">
-                <h3 class=" text-center">New Deck</h3>
+                @* Take the deck name from the profile pg or set to defult name. ex: Deck 1 *@
+                <h3 class="text-center">Deck 1</h3>
             </div>
             <div class="col-2 align-self-end">
-                <p>Digi-eggs: #/5 </p>
+                <p class="text-center">Cards: #/50 </p>
             </div>
         </div>
         @*<p>Buttons for Deck - Implement later</p> Was Thinking of section to name the deck and also save the deck or we need another page for a deck*@
         <div class="row">
-        @{ if (Model == null)
-            {
-                <h1>no cards yet</h1>
-            }
-            else
-            {
-                foreach (var card in Model)
-                {
-                    <div class="col-lg-3 px-4">
-                        <div class="round-10 text-center btn-neum-black bold">
-                            <div>
-                                <p><partial name="_CardPartialView.cshtml" for="@card" /> </p>
-                                <form asp-action="RemoveCard" asp-controller="Home" method="post">
-                                    <input name="cardNumber" value="@card.CardNumber" type="text" hidden />
-                                    <button type="submit">Remove Card</button>
-                                </form>
-                                <p>#</p>
-                            </div>
-                        </div>
-                    </div>
-                }
-            }
-        }
-    </div>
-</div>
-    <div class="col-6 border border-dark border-3">
-        <h3 class="text-center">Collection</h3>
-        <div class="row">
             @{ if (Model == null)
                 {
-                <h1>no cards yet</h1>
+                    <h1>no cards yet</h1>
                 }
                 else
                 {
                     foreach (var card in Model)
                     {
-                    <div class="col-lg-3 px-4">
-                        <div class="round-10 text-center btn-neum-black bold">
-                            <div>
-                                
-                            <p><partial name="_CardPartialView.cshtml" for="@card" /> </p>
-                            <form asp-action="AddCard" asp-controller="Home" method="post">
-                                <input name="cardNumber" value="@card.CardNumber" type="text" hidden />
-                                <button type="submit">Add Card</button>
-                            </form>
-                            <p>#</p>
+                        <div class="col-3">
+                            <div class="round-10 text-center bold">
+                                <div class="card m-1">
+                                    <p><partial name="_CardDeckPartialView.cshtml" for="@card" /> </p>
+                                </div>
+                            </div>
                         </div>
-                        </div>
-                    </div>
                     }
                 }
             }
-
+        </div>
+    </div>
+    <div class="col-6 border border-dark border-3">
+        <h3 class="text-center">Collection</h3>
+        <div class="row">
+            @{ if (Model == null)
+                {
+                    <h1>no cards yet</h1>
+                }
+                else
+                {
+                    foreach (var card in Model)
+                    {
+                        <div class="col-lg-3">
+                            <div class="round-10 text-center bold">
+                                <div class="card m-1">
+                                    <p><partial name="_CardDeckPartialView.cshtml" for="@card" /> </p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            }
         </div>
     </div>
 </div>
