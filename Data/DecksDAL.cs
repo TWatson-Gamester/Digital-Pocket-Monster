@@ -9,7 +9,9 @@ namespace Digital_Pocket_Monster.Data
 {
     public class DecksDAL : IDataAccessLayerDecks
     {
+        private CardsDAL cdal;
         private DigimonContext db;
+        public int numOfCards;
 
         public DecksDAL(DigimonContext indb)
         {
@@ -22,6 +24,7 @@ namespace Digital_Pocket_Monster.Data
 
             if(foundDeck != null)
             {
+                numOfCards++;
                 db.Add(card);
                 db.SaveChanges();
             }
@@ -32,6 +35,32 @@ namespace Digital_Pocket_Monster.Data
             if (deck.ID >= 5) return;
             db.Add(deck);
             db.SaveChanges();
+        }
+
+        public Card getCard(string cardNumber)
+        {
+            Card card = cdal.getCard(cardNumber);
+            return card;
+        }
+
+        public List<Card> getCardsInDeck(int? deckId, Card card)
+        {
+            Deck foundDeck = getDeck(deckId);
+            Card theCard;
+            List<Card> cardArray = new List<Card>();
+            int arrayIndex = 0;
+
+            if (foundDeck != null)
+            {
+                foreach (var cardValue in db.Cards.Where(c => c.DeckID == foundDeck.ID).ToList())
+                {
+                    theCard = getCard(card.CardNumber);
+                    cardArray[arrayIndex] = theCard;
+                    arrayIndex++;
+                }
+                return cardArray;
+            }
+            return null;
         }
 
         public Deck getDeck(int? id)
@@ -57,6 +86,7 @@ namespace Digital_Pocket_Monster.Data
 
             if (foundDeck != null)
             {
+                numOfCards--;
                 db.Remove(cardId);
                 db.SaveChanges();
             }
@@ -72,9 +102,9 @@ namespace Digital_Pocket_Monster.Data
             }
         }
 
-        public IEnumerable<Deck> showDecks()
+        public IEnumerable<Deck> showDecks(string userId)
         {
-            throw new NotImplementedException();
+            return db.Decks.Where(m => m.UserID == userId).ToList();
         }
     }
 }

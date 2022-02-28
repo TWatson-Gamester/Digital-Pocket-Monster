@@ -14,10 +14,10 @@
             {
                 foreach (var card in Model)
                 {
-                    <div class="col-lg-3 px-4">
-                        <div class="round-10 text-center btn-neum-black bold">
-                            <div>
-                                <p><partial name="_CardPartialView.cshtml" for="@card" /> </p>
+                    <div class="col-2">
+                        <div class="round-10 text-center bold">
+                            <div class="card m-2">
+                                <p><partial name="_CardCollectionPartialView.cshtml" for="@card" /> </p>
                             </div>
                         </div>
                     </div>

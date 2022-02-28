@@ -96,12 +96,6 @@ img {
     border-radius: 10px;
 }
 
-.btn-neum-black {
-    background-color: powderblue;
-    border-color: blue;
-    color: black;
-}
-
 .sidebar {
     top: 0;
     bottom: 0;
@@ -127,3 +121,18 @@ img {
 .vert-align {
     vertical-align: middle;
 }
+
+.card {
+    height: 350px;
+    background-color: powderblue;
+    font-size: 20px;
+    border-color: blue;
+    color: black;
+}
+
+    .card .card-header {
+        font-size: 98%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }

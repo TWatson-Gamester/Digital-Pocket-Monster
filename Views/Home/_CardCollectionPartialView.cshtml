@@ -1,0 +1,25 @@
+﻿@model Card
+
+@if (Model == null)
+{
+    <h1>No card available</h1>
+}
+else
+{
+    <div class="col-12">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h3 title="@Model.Name" class="card-header">@Model.Name</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img class="cardImageSize" src="~/images/@Model.Image">
+                <h5 hidden>Card Type: @Model.CardType</h5>
+                <h5 hidden>Color: @Model.Color</h5>
+                <h5 hidden>Level: @Model.Level</h5>
+                <h5 hidden>Card Number: @Model.CardNumber</h5>
+            </div>
+        </div>
+    </div>
+}
