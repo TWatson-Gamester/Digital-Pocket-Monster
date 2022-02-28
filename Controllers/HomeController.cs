@@ -68,10 +68,6 @@ namespace Digital_Pocket_Monster.Controllers
         {
             return View();
         }
-        public IActionResult DeckBuilding()
-        {
-            return View(dal.showCards(User.FindFirstValue(ClaimTypes.NameIdentifier)));
-        }
 
         public IActionResult Database()
         {

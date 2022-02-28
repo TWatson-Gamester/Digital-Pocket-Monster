@@ -1,0 +1,82 @@
+﻿@{
+    ViewData["Title"] = "Deck Builder";
+}
+@model IEnumerable<Card>
+<h1 class="d-flex justify-content-center">@ViewBag.Title</h1>
+<div class="row">
+    <div class="col-6 border border-dark border-3">
+
+        
+        <div class="row">
+            <div class="col-12">
+                <div class="col-12 align-self-center">
+                    @* Take the deck name from the profile pg or set to defult name. ex: Deck 1 *@
+                    <h3 class="text-center">Deck 1</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-6 align-self-start">
+                    <p>Digi-eggs: #/5 </p>
+                </div>
+
+                <div class="col-6 align-self-end">
+                    <p class="text-center">Cards: #/50 </p>
+                </div>
+        </div>
+
+        @*<p>Buttons for Deck - Implement later</p> Was Thinking of section to name the deck and also save the deck or we need another page for a deck*@
+        <div class="row">
+            @{ if (Model == null)
+                {
+                    <h1>no cards yet</h1>
+                }
+                else
+                {
+                    foreach (var card in Model)
+                    {
+                        <div class="col-3">
+                            <div class="round-10 text-center bold">
+                                <div class="card m-1">
+                                    <p><partial name="_CardDeckPartialView.cshtml" for="@card" /> </p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            }
+        </div>
+    </div>
+    <div class="col-6 border border-dark border-3">
+        <h3 class="text-center">Collection</h3>
+        <div class="row d-flex justify-content-center">
+            <div class="d-flex justify-content-center">
+                <div class="align-self-center">
+                    <p>
+                        <partial name="_HorizontalFilterPartialView.cshtml" />
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @{ if (Model == null)
+                {
+                    <h1>no cards yet</h1>
+                }
+                else
+                {
+                    foreach (var card in Model)
+                    {
+                        <div class="col-lg-3">
+                            <div class="round-10 text-center bold">
+                                <div class="card m-1">
+                                    <p><partial name="_CardDeckPartialView.cshtml" for="@card" /> </p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            }
+        </div>
+    </div>
+</div>

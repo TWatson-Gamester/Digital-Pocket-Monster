@@ -7,16 +7,14 @@
 else
 {
     <div class="col-12">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <h3>@Model.Name</h3>
-                </div>
+        <div class="row">
+            <div class="col-12 text-center">
+                <h3 title="@Model.Name" class="card-header">@Model.Name</h3>
             </div>
+        </div>
         <div class="row">
             <div class="col-md-12">
                 <img class="cardImageSize" src="~/images/@Model.Image">
-         @* </div>
-            <div class="col-md-6 text-center"> *@
                 <h5 hidden>Card Type: @Model.CardType</h5>
                 <h5 hidden>Color: @Model.Color</h5>
                 <h5 hidden>Level: @Model.Level</h5>
