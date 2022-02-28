@@ -43,8 +43,8 @@ namespace Digital_Pocket_Monster.Models
         public string Rarity { get; set; }
         [Required]
         public int AmountOwned { get; set; } = 0;
-        private int PackID { get; set; }
-        private int? DeckID { get; set; }
+        public int PackID { get; set; }
+        public int? DeckID { get; set; }
 
         public Card() {}
 

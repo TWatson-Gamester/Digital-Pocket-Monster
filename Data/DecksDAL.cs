@@ -41,6 +41,26 @@ namespace Digital_Pocket_Monster.Data
             return card;
         }
 
+        public List<Card> getCardsInDeck(int? deckId, Card card)
+        {
+            Deck foundDeck = getDeck(deckId);
+            Card theCard;
+            List<Card> cardArray = new List<Card>();
+            int arrayIndex = 0;
+
+            if (foundDeck != null)
+            {
+                foreach (var cardValue in db.Cards.Where(c => c.DeckID == foundDeck.ID).ToList())
+                {
+                    theCard = getCard(card.CardNumber);
+                    cardArray[arrayIndex] = theCard;
+                    arrayIndex++;
+                }
+                return cardArray;
+            }
+            return null;
+        }
+
         public Deck getDeck(int? id)
         {
             Deck foundDeck = null;
