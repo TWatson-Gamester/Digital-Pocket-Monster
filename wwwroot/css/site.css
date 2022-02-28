@@ -85,7 +85,7 @@ img {
 
 .logosize {
     height: 50px;
-    width: 50px;
+    width: 80px;
 }
 
 .cardImageSize {
@@ -130,9 +130,30 @@ img {
     color: black;
 }
 
-    .card .card-header {
-        font-size: 98%;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-    }
+.card .card-header {
+    font-size: 98%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/*
+    Colors
+
+*/
+
+.whiteBGColor {
+    background-color: #D9DCD6;
+}
+.lightBlueBGColor {
+    background-color: #81C3D7;
+}
+.medBlueBGColor {
+    background-color: #3A7CA5;
+}
+.blueBGColor {
+    background-color: #2F6690;
+}
+.darkBlueBGColor {
+    background-color: #16425B;
+}
