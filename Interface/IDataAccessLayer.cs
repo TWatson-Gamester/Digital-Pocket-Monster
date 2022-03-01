@@ -13,7 +13,8 @@ namespace Digital_Pocket_Monster.Interface
         IEnumerable<Card> filterCards(string color, string cardType, int? level, string name, string cardNumber, int? id, string digiColor, int? playCost, int? cardPower, string race, string attribute,
             string stageLevel, string rarity);
         Card getCard(string cardNumber);
-        void removeCard(int? id);
+        int getCardAmount(string cardNumber);
+        void removeCard(string cardNumber);
         void addCard(Card card);
         // add to the methods so that they take in the UserID - Tobie
     }
