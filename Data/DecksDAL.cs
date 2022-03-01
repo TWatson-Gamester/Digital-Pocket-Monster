@@ -80,15 +80,30 @@ namespace Digital_Pocket_Monster.Data
             return foundDeck;
         }
 
-        public void removeCard(int? deckId, int? cardId)
+        public int getCardAmount(string cardNumber)
+        {
+            Card foundCard = getCard(cardNumber);
+            int cardAmount = 0;
+            foreach (var cardValue in db.Cards.Where(c => c.CardNumber == foundCard.CardNumber).ToList())
+            {
+                cardAmount++;
+            }
+
+            return cardAmount;
+        }
+
+        public void removeCard(int? deckId, string cardNumber)
         {
             Deck foundDeck = getDeck(deckId);
+            Card foundCard = getCard(cardNumber);
 
             if (foundDeck != null)
             {
-                numOfCards--;
-                db.Remove(cardId);
-                db.SaveChanges();
+                if (foundCard != null)
+                {
+                    db.Cards.Remove(foundCard);
+                    db.SaveChanges();
+                }
             }
         }
 
