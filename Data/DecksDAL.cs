@@ -92,10 +92,10 @@ namespace Digital_Pocket_Monster.Data
             return cardAmount;
         }
 
-        public void removeCard(int? deckId, string cardNumber)
+        public void removeCard(int? deckId, Card card)
         {
             Deck foundDeck = getDeck(deckId);
-            Card foundCard = getCard(cardNumber);
+            Card foundCard = getCard(card.CardNumber);
 
             if (foundDeck != null)
             {
