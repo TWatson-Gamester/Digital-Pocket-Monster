@@ -101,9 +101,26 @@ namespace Digital_Pocket_Monster.Data
             return null;
         }
 
-        public void removeCard(int? id)
+        public int getCardAmount(string cardNumber)
         {
-            throw new NotImplementedException();
+            Card foundCard = getCard(cardNumber);
+            int cardAmount = 0;
+            foreach (var cardValue in db.Cards.Where(c => c.CardNumber == foundCard.CardNumber).ToList())
+            {
+                cardAmount++;
+            }
+
+            return cardAmount;
+        }
+
+        public void removeCard(string cardNumber)
+        {
+            Card foundCard = getCard(cardNumber);
+            if(foundCard != null)
+            {
+                db.Cards.Remove(foundCard);
+                db.SaveChanges();
+            }
         }
 
         public IEnumerable<Card> searchCards(string searchCard)
