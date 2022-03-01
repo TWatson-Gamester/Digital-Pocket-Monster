@@ -11,9 +11,9 @@ namespace Digital_Pocket_Monster.Data
     {
         public Card card;
 
-        private DigimonContext db;
+        private IdentityContext db;
         
-        public CardsDAL(DigimonContext indb)
+        public CardsDAL(IdentityContext indb)
         {
             this.db = indb;
         }
