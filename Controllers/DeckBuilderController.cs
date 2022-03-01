@@ -36,10 +36,10 @@ namespace Digital_Pocket_Monster.Controllers
             bool canAdd = true;
             Card cardBeingAdded = decksDAL.getCard(cardNumber);
 
-/*            if (decksDAL.getCard(cardNumber) >= 4)
+/*            if (decksDAL.getCardsInDeck(1, cardBeingAdded) >= 4)
             {
                 canAdd = false;
-            }   Make something that searches and looks for how many of a card there is*/   
+            }*/
 
             if (cardBeingAdded.CardType == "Digitama" && digiEggs < 5 && canAdd)
             {
