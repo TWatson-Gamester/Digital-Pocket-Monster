@@ -10,10 +10,10 @@ namespace Digital_Pocket_Monster.Data
     public class DecksDAL : IDataAccessLayerDecks
     {
         private CardsDAL cdal;
-        private DigimonContext db;
+        private IdentityContext db;
         public int numOfCards;
 
-        public DecksDAL(DigimonContext indb)
+        public DecksDAL(IdentityContext indb)
         {
             this.db = indb;
         }
