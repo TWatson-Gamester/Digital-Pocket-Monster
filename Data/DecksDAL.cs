@@ -10,10 +10,10 @@ namespace Digital_Pocket_Monster.Data
     public class DecksDAL : IDataAccessLayerDecks
     {
         private CardsDAL cdal;
-        private DigimonContext db;
+        private IdentityContext db;
         public int numOfCards;
 
-        public DecksDAL(DigimonContext indb)
+        public DecksDAL(IdentityContext indb)
         {
             this.db = indb;
         }
@@ -80,15 +80,30 @@ namespace Digital_Pocket_Monster.Data
             return foundDeck;
         }
 
-        public void removeCard(int? deckId, int? cardId)
+        public int getCardAmount(string cardNumber)
+        {
+            Card foundCard = getCard(cardNumber);
+            int cardAmount = 0;
+            foreach (var cardValue in db.Cards.Where(c => c.CardNumber == foundCard.CardNumber).ToList())
+            {
+                cardAmount++;
+            }
+
+            return cardAmount;
+        }
+
+        public void removeCard(int? deckId, Card card)
         {
             Deck foundDeck = getDeck(deckId);
+            Card foundCard = getCard(card.CardNumber);
 
             if (foundDeck != null)
             {
-                numOfCards--;
-                db.Remove(cardId);
-                db.SaveChanges();
+                if (foundCard != null)
+                {
+                    db.Cards.Remove(foundCard);
+                    db.SaveChanges();
+                }
             }
         }
 

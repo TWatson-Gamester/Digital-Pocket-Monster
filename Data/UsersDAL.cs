@@ -9,8 +9,8 @@ namespace Digital_Pocket_Monster.Data
 {
     public class UsersDAL : IDataAccessLayerUsers
     {
-        private DigimonContext db;
-        public UsersDAL(DigimonContext indb)
+        private IdentityContext db;
+        public UsersDAL(IdentityContext indb)
         {
             this.db = indb;
         }

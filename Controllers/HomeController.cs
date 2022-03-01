@@ -59,7 +59,7 @@ namespace Digital_Pocket_Monster.Controllers
 
         public IActionResult FilterCards(string color, string cardType, int? level, string name, string cardNumber, int? id,
             string digiColor, int? playCost, int? cardPower, string race, string attribute,
-            string stageLevel, string rarity)
+            string stageLevel, string rarity, bool showOwned)
         {
             return View("Collection", dal.filterCards(color, cardType, level, name , cardNumber, id, digiColor, playCost, cardPower,
                 race, attribute, stageLevel, rarity)); 
