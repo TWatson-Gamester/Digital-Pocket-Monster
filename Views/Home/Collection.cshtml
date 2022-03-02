@@ -20,22 +20,6 @@
                     <p><partial name="_CardCollectionPartialView.cshtml" for="@card" /> </p>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="col-6">
-                        <form asp-controller="Home" asp-action="AddCardToCollection" method="post">
-                            <input type="text" name="cardNumber" value="@card.CardNumber" hidden />
-                            <button type="submit">Add Card</button>
-                        </form>
-                    </div>
-                    <div class="col-6">
-                        <form asp-controller="Home" asp-action="AddCardToCollection" method="post">
-                            <input type="text" name="cardNumber" value="@card.CardNumber" hidden />
-                            <button type="submit">Add Card</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
         </div>
                 }
             }
