@@ -109,5 +109,12 @@ namespace Digital_Pocket_Monster.Controllers
             dal.addCard(cardNumber);
             return Redirect("Collection");
         }
+
+        [HttpPost]
+        public IActionResult RemoveCardFromCollection(string cardNumber)
+        {
+            dal.removeCard(cardNumber);
+            return Redirect("Collection");
+        }
     }
 }

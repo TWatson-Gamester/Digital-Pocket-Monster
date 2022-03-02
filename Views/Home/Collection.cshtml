@@ -29,9 +29,9 @@
                         </form>
                     </div>
                     <div class="col-6">
-                        <form asp-controller="Home" asp-action="AddCardToCollection" method="post">
+                        <form asp-controller="Home" asp-action="RemoveCardFromCollection" method="post">
                             <input type="text" name="cardNumber" value="@card.CardNumber" hidden />
-                            <button type="submit">Add Card</button>
+                            <button type="submit">Remove Card</button>
                         </form>
                     </div>
                 </div>
