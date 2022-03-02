@@ -7,22 +7,22 @@ using System.Threading.Tasks;
 
 namespace Digital_Pocket_Monster.Models
 {
-    public class AccountInfo
+    public class AccountInfo : Areas.Identity.Pages.Account.ExternalLoginModel.InputModel
     {
         [Required]
         public int Id { get; set; }
-        [Required] [Column(TypeName = "varchar(15)")]
+        [Column(TypeName = "varchar(150)")]
         public string Name { get; set; }
-        [Required] [Column(TypeName = "varchar(25)")]
-        public string CardID { get; set; }
-        [Required] [Column(TypeName = "varchar(50)")]
-        public string DeckID { get; set; }
-        [Required] [Column(TypeName = "varchar(100)")]
+        [Column(TypeName = "int")]
+        public int CardID { get; set; }
+        [Column(TypeName = "int")]
+        public int DeckID { get; set; }
+        [Column(TypeName = "nvarchar(450)")]
         public string IdentityID { get; set; }
 
         public AccountInfo() { }
 
-        public AccountInfo(int id, string name, string cardId, string deckId, string identityId)
+        public AccountInfo(int id, string name, int cardId, int deckId, string identityId)
         {
             this.Id = id;
             this.Name = name;
