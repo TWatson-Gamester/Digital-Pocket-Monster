@@ -24,6 +24,16 @@ namespace Digital_Pocket_Monster.Data
             db.SaveChanges();
         }
 
+        public void removeCard(string cardNumber)
+        {
+            var cardToChange = getCard(cardNumber);
+            if(cardToChange.AmountOwned != 0)
+            {
+                cardToChange.AmountOwned--;
+                db.SaveChanges();
+            }
+        }
+
         public IEnumerable<Card> filterCards(string color, string cardType, int? level, string name, string cardNumber, int? id,
             string digiColor, int? playCost, int? cardPower, string race, string attribute,
             string stageLevel, string rarity, bool showOwned)
@@ -114,16 +124,6 @@ namespace Digital_Pocket_Monster.Data
             }
 
             return cardAmount;
-        }
-
-        public void removeCard(string cardNumber)
-        {
-            Card foundCard = getCard(cardNumber);
-            if(foundCard != null)
-            {
-                db.Cards.Remove(foundCard);
-                db.SaveChanges();
-            }
         }
 
         public IEnumerable<Card> searchCards(string searchCard)
