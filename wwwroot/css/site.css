@@ -116,10 +116,15 @@ img {
     background-color: blue;
 }
 
-/*.bold {
-    font-family: 'DIN BOLD';
+.boxBGText {
+    background-color: #16425B !important;
+    border-color: #16425B !important;
+    color: #D9DCD6;
+}
+
+.bold {
     font-weight: bold;
-}*/
+}
 
 .vert-align {
     vertical-align: middle;
