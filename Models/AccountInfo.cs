@@ -10,28 +10,25 @@ namespace Digital_Pocket_Monster.Models
     public class AccountInfo
     {
         [Required]
-        public int ID { get; set; }
+        public int Id { get; set; }
         [Required] [Column(TypeName = "varchar(15)")]
-        public string FirstName { get; set; }
+        public string Name { get; set; }
         [Required] [Column(TypeName = "varchar(25)")]
-        public string LastName { get; set; }
+        public string CardID { get; set; }
         [Required] [Column(TypeName = "varchar(50)")]
-        public string Username { get; set; }
-        [Required] [Column(TypeName = "varchar(50)")]
-        public string Password { get; set; }
+        public string DeckID { get; set; }
         [Required] [Column(TypeName = "varchar(100)")]
-        public string Email { get; set; }
+        public string IdentityID { get; set; }
 
         public AccountInfo() { }
 
-        public AccountInfo(int id, string firstName, string lastname, string username, string password, string email)
+        public AccountInfo(int id, string name, string cardId, string deckId, string identityId)
         {
-            this.ID = id;
-            this.FirstName = firstName;
-            this.LastName = lastname;
-            this.Username = username;
-            this.Password = password;
-            this.Email = email; 
+            this.Id = id;
+            this.Name = name;
+            this.CardID = cardId;
+            this.DeckID = deckId;
+            this.IdentityID = identityId; 
         }
     }
 }
