@@ -26,7 +26,7 @@ namespace Digital_Pocket_Monster.Data
 
         public IEnumerable<Card> filterCards(string color, string cardType, int? level, string name, string cardNumber, int? id,
             string digiColor, int? playCost, int? cardPower, string race, string attribute,
-            string stageLevel, string rarity)
+            string stageLevel, string rarity, bool showOwned)
         {
             IQueryable<Card> query = db.Cards;
 
@@ -81,6 +81,10 @@ namespace Digital_Pocket_Monster.Data
             if(!string.IsNullOrWhiteSpace(rarity))
             {
                 query = query.Where(c => c.Rarity.ToLower().Equals(rarity.ToLower()));
+            }
+            if(showOwned)
+            {
+                query = query.Where(c => c.AmountOwned > 0);
             }
 
             return query.ToList();
