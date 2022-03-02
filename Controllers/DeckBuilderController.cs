@@ -50,7 +50,7 @@ namespace Digital_Pocket_Monster.Controllers
                 canAdd = false;
             }
 
-            if (canAdd)
+            if (canAdd && cardsInDeck < 55)
             {
                 decksDAL.addCard(1, cardBeingAdded);
                 cardsInDeck++;
