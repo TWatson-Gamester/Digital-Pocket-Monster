@@ -62,7 +62,7 @@ namespace Digital_Pocket_Monster.Controllers
             string stageLevel, string rarity, bool showOwned)
         {
             return View("Collection", dal.filterCards(color, cardType, level, name , cardNumber, id, digiColor, playCost, cardPower,
-                race, attribute, stageLevel, rarity)); 
+                race, attribute, stageLevel, rarity, showOwned)); 
         }
         public IActionResult Profile()
         {

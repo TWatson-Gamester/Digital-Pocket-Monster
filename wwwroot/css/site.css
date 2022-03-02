@@ -67,6 +67,9 @@ html {
 body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
+
+    /*Added*/
+    height: 100%;
 }
 
 .footer {
@@ -136,6 +139,23 @@ img {
     white-space: nowrap;
     text-overflow: ellipsis;
 }
+
+.fullScreen {
+    height: 100%;
+}
+
+/*
+    images
+*/
+.gomamonBg {
+
+    background-image: url("../images/Gommamon_Placeholder.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: dimgrey;
+}
+
 
 /*
     Colors

@@ -24,7 +24,6 @@ namespace Digital_Pocket_Monster.Controllers
             decksDAL = inDB;
         }
 
-
         public IActionResult DeckBuilding()
         {
             return View("DeckBuilding", decksDAL.getDeck(1));
