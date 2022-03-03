@@ -2,14 +2,14 @@
     ViewData["Title"] = "Deck Builder";
 }
 @model IEnumerable<Card>
-<div class="row d-flex justify-content-center darkBlueBGColor">
-    <h1 class="bold text-center">@ViewBag.Title</h1>
+<div class="row d-flex justify-content-center darkBlueBGColor p-2">
+    <h1 class="text-light text-center">@ViewBag.Title</h1>
 </div>
 
 @*
     Deck
 *@
-<div class="row">
+<div class="row whiteBGColor">
     <div class="col-6 border border-dark border-3">
         <div class="row blueBGColor">
             <div class="col-12">
@@ -20,13 +20,13 @@
             </div>
         </div>
         <div class="row">
-                <div class="col-6 align-self-start">
-                    <p>Digi-eggs: @ViewBag.digiEggs/5 </p>
-                </div>
+            <div class="col-6 align-self-start">
+                <p>Digi-eggs: @ViewBag.digiEggs/5 </p>
+            </div>
 
-                <div class="col-6 align-self-end">
-                    <p class="text-center">Cards: @ViewBag.cardsInDeck/50 </p>
-                </div>
+            <div class="col-6 align-self-end">
+                <p class="text-center">Cards: @ViewBag.cardsInDeck/50 </p>
+            </div>
         </div>
 
         @*<p>Buttons for Deck - Implement later</p> Was Thinking of section to name the deck and also save the deck or we need another page for a deck*@
@@ -54,16 +54,21 @@
 
     @*
         Collection
+
     *@
+
     <div class="col-6 border border-dark border-3">
         <div class="row blueBGColor">
-            <h3 class="text-center">Collection</h3>
-            <div class="row d-flex justify-content-center">
-                <div class="d-flex justify-content-center">
-                    <div class="align-self-center">
-                        <partial name="_HorizontalFilterPartialView.cshtml" />
-                    </div>
+            <div class="col-12">
+                <div class="col-12 align-self-center">
+                    <h3 class="text-center">Collection</h3>
                 </div>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center medBlueBGColor">
+
+            <div class=" col-12 align-self-center">
+                <partial name="_HorizontalFilterPartialView.cshtml" />
             </div>
         </div>
         <div class="row">
