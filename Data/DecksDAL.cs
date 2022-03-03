@@ -12,10 +12,10 @@ namespace Digital_Pocket_Monster.Data
         private CardsDAL cdal;
         private IdentityContext db;
 
-        public DecksDAL(IdentityContext indb, CardsDAL cdal)
+        public DecksDAL(IdentityContext indb, CardsDAL inCdal)
         {
             this.db = indb;
-            this.cdal = cdal;
+            this.cdal = inCdal;
         }
 
         public void addCard(int? deckId, Card card)
