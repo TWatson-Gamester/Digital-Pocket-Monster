@@ -17,11 +17,11 @@
         </div>
         <div class="row">
                 <div class="col-6 align-self-start">
-                    <p>Digi-eggs: #/5 </p>
+                    <p>Digi-eggs: @ViewBag.digiEggs/5 </p>
                 </div>
 
                 <div class="col-6 align-self-end">
-                    <p class="text-center">Cards: #/50 </p>
+                    <p class="text-center">Cards: @ViewBag.cardsInDeck/50 </p>
                 </div>
         </div>
 
@@ -59,13 +59,13 @@
             </div>
         </div>
         <div class="row">
-            @{ if (Model == null)
+            @{ if (ViewBag.cardCollection == null)
                 {
                     <h1>no cards yet</h1>
                 }
                 else
                 {
-                    foreach (var card in Model)
+                    foreach (var card in ViewBag.cardCollection)
                     {
                         <div class="col-lg-3">
                             <div class="round-10 text-center bold">

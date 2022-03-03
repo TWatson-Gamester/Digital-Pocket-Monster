@@ -18,14 +18,24 @@ namespace Digital_Pocket_Monster.Controllers
         private int digiEggs = 0;
         private int cardsInDeck = 0;
         IDataAccessLayerDecks decksDAL;
+        IDataAccessLayerCards collection;
 
-        public DeckBuilderController(IDataAccessLayerDecks inDB)
+        public DeckBuilderController(IDataAccessLayerDecks inDB, IDataAccessLayerCards inCDB)
         {
             decksDAL = inDB;
+            collection = inCDB;
         }
 
         public IActionResult DeckBuilding()
         {
+            ViewBag.cardsInDeck = cardsInDeck;
+            ViewBag.digiEggs = digiEggs;
+            List<Card> cardCollection = new List<Card>();
+            foreach(var card in collection.showCardsNonUser())
+            {
+                cardCollection.Add(card);
+            }
+            ViewBag.cardCollection = cardCollection;
             return View("DeckBuilding", decksDAL.getDeck(1));
         }
 
