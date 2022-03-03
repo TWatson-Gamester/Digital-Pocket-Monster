@@ -34,6 +34,7 @@ namespace Digital_Pocket_Monster
 
             services.AddTransient<IDataAccessLayerCards, CardsDAL>();
             services.AddTransient<IDataAccessLayerDecks, DecksDAL>();
+            services.AddTransient<IDataAccessLayerUsers, UsersDAL>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

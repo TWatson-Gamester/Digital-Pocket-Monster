@@ -29,9 +29,9 @@ else
         <div class="col-12 d-flex justify-content-center">
             @{ if (true)
                 {
-                    <form asp-action="AddCard" asp-controller="Home" method="post">
+                    <form asp-action="AddCard" asp-controller="DeckBuilder" method="post">
                         <input name="cardNumber" value="@Model.CardNumber" type="text" hidden />
-                        <button type="submit">+</button>
+                        <button type="submit">Add Card</button>
                     </form>
                 }
                 else
