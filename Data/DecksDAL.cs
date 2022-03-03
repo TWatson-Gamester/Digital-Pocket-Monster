@@ -11,11 +11,11 @@ namespace Digital_Pocket_Monster.Data
     {
         private CardsDAL cdal;
         private IdentityContext db;
-        public int numOfCards;
 
-        public DecksDAL(IdentityContext indb)
+        public DecksDAL(IdentityContext indb, CardsDAL inCdal)
         {
             this.db = indb;
+            this.cdal = inCdal;
         }
 
         public void addCard(int? deckId, Card card)
@@ -24,7 +24,6 @@ namespace Digital_Pocket_Monster.Data
 
             if(foundDeck != null)
             {
-                numOfCards++;
                 db.Add(card);
                 db.SaveChanges();
             }
