@@ -30,12 +30,7 @@ namespace Digital_Pocket_Monster.Controllers
         {
             ViewBag.cardsInDeck = cardsInDeck;
             ViewBag.digiEggs = digiEggs;
-            List<Card> cardCollection = new List<Card>();
-            foreach(var card in collection.showCardsNonUser())
-            {
-                cardCollection.Add(card);
-            }
-            ViewBag.cardCollection = cardCollection;
+            ViewBag.cardCollection = collection.showCardsNonUser();
             return View("DeckBuilding", decksDAL.getDeck(1));
         }
 
@@ -65,7 +60,7 @@ namespace Digital_Pocket_Monster.Controllers
                 cardsInDeck++;
             }
 
-            return View("DeckBuilding", decksDAL.getDeck(1));
+            return Redirect("DeckBuilding");
         }
 
         [HttpPost]
@@ -80,7 +75,7 @@ namespace Digital_Pocket_Monster.Controllers
             decksDAL.removeCard(1, cardBeingRemoved);
             cardsInDeck--;
 
-            return View("DeckBuilding", decksDAL.getDeck(1));
+            return Redirect("DeckBuilding");
         }
 
     }
