@@ -24,7 +24,7 @@ namespace Digital_Pocket_Monster.Controllers
         //}
 
         IDataAccessLayerCards dal;
-        public HomeController (IDataAccessLayerCards indal)
+        public HomeController(IDataAccessLayerCards indal)
         {
             dal = indal;
         }
@@ -58,7 +58,7 @@ namespace Digital_Pocket_Monster.Controllers
 
         public IActionResult SeachCards(string srchKeyTerms)
         {
-            
+
             return View("Collection", dal.searchCards(srchKeyTerms));
         }
 
@@ -66,8 +66,8 @@ namespace Digital_Pocket_Monster.Controllers
             string digiColor, int? playCost, int? cardPower, string race, string attribute,
             string stageLevel, string rarity, bool showOwned)
         {
-            return View("Collection", dal.filterCards(color, cardType, level, name , cardNumber, id, digiColor, playCost, cardPower,
-                race, attribute, stageLevel, rarity, showOwned)); 
+            return View("Collection", dal.filterCards(color, cardType, level, name, cardNumber, id, digiColor, playCost, cardPower,
+                race, attribute, stageLevel, rarity, showOwned));
         }
         public IActionResult Profile()
         {
@@ -106,6 +106,20 @@ namespace Digital_Pocket_Monster.Controllers
         public IActionResult DeleteAccount()
         {
             return View("Index");
+        }
+
+        [HttpPost]
+        public IActionResult AddCardToCollection(string cardNumber)
+        {
+            dal.addCard(cardNumber);
+            return Redirect("Collection");
+        }
+
+        [HttpPost]
+        public IActionResult RemoveCardFromCollection(string cardNumber)
+        {
+            dal.removeCard(cardNumber);
+            return Redirect("Collection");
         }
     }
 }

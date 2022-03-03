@@ -7,31 +7,28 @@ using System.Threading.Tasks;
 
 namespace Digital_Pocket_Monster.Models
 {
-    public class AccountInfo
+    public class AccountInfo : Areas.Identity.Pages.Account.ExternalLoginModel.InputModel
     {
         [Required]
-        public int ID { get; set; }
-        [Required] [Column(TypeName = "varchar(15)")]
-        public string FirstName { get; set; }
-        [Required] [Column(TypeName = "varchar(25)")]
-        public string LastName { get; set; }
-        [Required] [Column(TypeName = "varchar(50)")]
-        public string Username { get; set; }
-        [Required] [Column(TypeName = "varchar(50)")]
-        public string Password { get; set; }
-        [Required] [Column(TypeName = "varchar(100)")]
-        public string Email { get; set; }
+        public int Id { get; set; }
+        [Column(TypeName = "varchar(150)")]
+        public string Name { get; set; }
+        [Column(TypeName = "int")]
+        public int CardID { get; set; }
+        [Column(TypeName = "int")]
+        public int DeckID { get; set; }
+        [Column(TypeName = "nvarchar(450)")]
+        public string IdentityID { get; set; }
 
         public AccountInfo() { }
 
-        public AccountInfo(int id, string firstName, string lastname, string username, string password, string email)
+        public AccountInfo(int id, string name, int cardId, int deckId, string identityId)
         {
-            this.ID = id;
-            this.FirstName = firstName;
-            this.LastName = lastname;
-            this.Username = username;
-            this.Password = password;
-            this.Email = email; 
+            this.Id = id;
+            this.Name = name;
+            this.CardID = cardId;
+            this.DeckID = deckId;
+            this.IdentityID = identityId; 
         }
     }
 }

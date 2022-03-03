@@ -19,7 +19,24 @@ else
                 <h5 hidden>Color: @Model.Color</h5>
                 <h5 hidden>Level: @Model.Level</h5>
                 <h5 hidden>Card Number: @Model.CardNumber</h5>
+                <h5>Number Owned: @Model.AmountOwned</h5>
             </div>
-        </div>
+            </div>
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+                    <div class="col-6">
+                        <form asp-controller="Home" asp-action="AddCardToCollection" method="post">
+                            <input type="text" name="cardNumber" value="@Model.CardNumber" hidden />
+                            <button type="submit">Add Card</button>
+                        </form>
+                    </div>
+                    <div class="col-6">
+                        <form asp-controller="Home" asp-action="RemoveCardFromCollection" method="post">
+                            <input type="text" name="cardNumber" value="@Model.CardNumber" hidden />
+                            <button type="submit">Remove Card</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
     </div>
 }

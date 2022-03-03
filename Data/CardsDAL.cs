@@ -18,9 +18,21 @@ namespace Digital_Pocket_Monster.Data
         }
 
 
-        public void addCard(Card card)
+        public void addCard(string cardNumber)
         {
-            throw new NotImplementedException();
+            var cardToChange = getCard(cardNumber);
+            cardToChange.AmountOwned++;
+            db.SaveChanges();
+        }
+
+        public void removeCard(string cardNumber)
+        {
+            var cardToChange = getCard(cardNumber);
+            if(cardToChange.AmountOwned != 0)
+            {
+                cardToChange.AmountOwned--;
+                db.SaveChanges();
+            }
         }
 
         public IEnumerable<Card> filterCards(string color, string cardType, int? level, string name, string cardNumber, int? id,
@@ -97,10 +109,10 @@ namespace Digital_Pocket_Monster.Data
 
             if (!string.IsNullOrWhiteSpace(cardNumber))
             {
-                return (Card)query.Where(cn => cn.CardNumber.ToLower().Equals(cardNumber.ToLower()));
+                query = query.Where(cn => cn.CardNumber.ToLower().Equals(cardNumber.ToLower()));
             }
 
-            return null;
+            return query.ToArray()[0];
         }
 
         public int getCardAmount(string cardNumber)
@@ -113,16 +125,6 @@ namespace Digital_Pocket_Monster.Data
             }
 
             return cardAmount;
-        }
-
-        public void removeCard(string cardNumber)
-        {
-            Card foundCard = getCard(cardNumber);
-            if(foundCard != null)
-            {
-                db.Cards.Remove(foundCard);
-                db.SaveChanges();
-            }
         }
 
         public IEnumerable<Card> searchCards(string searchCard)

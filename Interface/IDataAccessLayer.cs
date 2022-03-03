@@ -17,7 +17,7 @@ namespace Digital_Pocket_Monster.Interface
         Card getCard(string cardNumber);
         int getCardAmount(string cardNumber);
         void removeCard(string cardNumber);
-        void addCard(Card card);
+        void addCard(string cardNumber);
         // add to the methods so that they take in the UserID - Tobie
     }
 }

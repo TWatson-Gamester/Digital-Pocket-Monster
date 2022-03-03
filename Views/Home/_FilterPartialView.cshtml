@@ -1,24 +1,36 @@
-﻿<div class="col-md-2 sidebar">
+﻿<div class="col-2 sidebar">
     <div class="sidebar-sticky">
         <div class="nav flex-column">
-            <div class=" col-2">
-                <label>Filter</label>
+            <div class="col-12">
+                <div d-flex justify-content-center">
+                    <div class="boxBGText round-10">
+                        <p class="text-center align-middle">Filter</p>
+                    </div>
+                </div>
+            </div>
+            <div class=" col-12 d-flex justify-content-start">
                 <form asp-controller="Home" asp-action="FilterCards" method="post">
-                    <input type="search" name="color" placeholder="color" />
-                    <input type="search" name="cardType" placeholder="cardType" />
-                    <input type="search" name="level" placeholder="level" />
-                    <input type="search" name="name" placeholder="name" />
-                    <input type="search" name="cardNumber" placeholder="cardNumber" />
-                    <input type="search" name="id" placeholder="id" />
-                    <input type="search" name="digiColor" placeholder="digiColor"/>
-                    <input type="search" name="playCost" placeholder="playCost"/>
-                    <input type="search" name="cardPower" placeholder="cardPower"/>
-                    <input type="search" name="race" placeholder="race"/>
-                    <input type="search" name="attribute" placeholder="attribute"/>
-                    <input type="search" name="stageLevel" placeholder="stageLevel"/>
-                    <input type="search" name="rarity" placeholder="rarity"/>
-                    <input type="checkbox" id="ShowOwned" name="showOwned" value="true" />
-                    <label for="ShowOwned">Show Owned</label>
+                    <div class="row m-1">
+                        <div class="col-12">
+                            <input type="checkbox" id="ShowOwned" name="showOwned" value="true" />
+                            <label for="ShowOwned"> Show Owned</label>
+                        </div>
+                    </div>
+                    <div class="row m-1">
+                        <input type="search" name="color" placeholder="color" />
+                        <input type="search" name="cardType" placeholder="cardType" />
+                        <input type="search" name="level" placeholder="level" />
+                        <input type="search" name="name" placeholder="name" />
+                        <input type="search" name="cardNumber" placeholder="cardNumber" />
+                        <input type="search" name="id" placeholder="id" />
+                        <input type="search" name="digiColor" placeholder="digiColor" />
+                        <input type="search" name="playCost" placeholder="playCost" />
+                        <input type="search" name="cardPower" placeholder="cardPower" />
+                        <input type="search" name="race" placeholder="race" />
+                        <input type="search" name="attribute" placeholder="attribute" />
+                        <input type="search" name="stageLevel" placeholder="stageLevel" />
+                        <input type="search" name="rarity" placeholder="rarity" />
+                    </div>
                     <button type="submit">Submit</button>
                 </form>
             </div>
