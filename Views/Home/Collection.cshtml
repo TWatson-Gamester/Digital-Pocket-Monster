@@ -1,9 +1,9 @@
 ﻿@model IEnumerable<Card>
-<div class="row justify-content-center pageTitle">
-    <h1>Card Collection</h1>
+<div class="darkBlueBGColor row justify-content-center box-shadow">
+    <h1 class="text-light  p-2">Card Collection</h1>
 </div>
-<div class="row">
-    <p><partial name="_FilterPartialView.cshtml"/> </p>
+<div class="row whiteBGColor">
+    <p><partial name="_FilterPartialView.cshtml" /> </p>
     <div class="col-md-10">
         <div class="row">
             @if (Model == null)
@@ -14,13 +14,13 @@
             {
                 foreach (var card in Model)
                 {
-        <div class="col-2">
-            <div class="round-10 text-center bold">
-                <div class="card m-2">
-                    <p><partial name="_CardCollectionPartialView.cshtml" for="@card" /> </p>
-                </div>
-            </div>
-        </div>
+                    <div class="col-2">
+                        <div class="round-10 text-center bold">
+                            <div class="card medBlueBGColor m-1">
+                                <partial name="_CardCollectionPartialView.cshtml" for="@card" />
+                            </div>
+                        </div>
+                    </div>
                 }
             }
         </div>
