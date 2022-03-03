@@ -9,7 +9,6 @@ namespace Digital_Pocket_Monster.Data
 {
     public class CardsDAL : IDataAccessLayerCards
     {
-        public Card card;
 
         private IdentityContext db;
         
@@ -94,7 +93,6 @@ namespace Digital_Pocket_Monster.Data
 
         public Card getCard(string cardNumber)
         {
-            card.CardNumber = cardNumber;
             IQueryable<Card> query = db.Cards;
 
             if (!string.IsNullOrWhiteSpace(cardNumber))
@@ -133,9 +131,14 @@ namespace Digital_Pocket_Monster.Data
 
         }
 
-        public IEnumerable<Card> showCards(string userId)
+        public IEnumerable<Card> showCardsUsers(string userId)
         {
             return db.Cards.Where(m => m.UserID == userId).ToList();
+        }
+
+        public IEnumerable<Card> showCardsNonUser()
+        {
+            return db.Cards.ToList();
         }
 
         public void UpdateCards(Card card)

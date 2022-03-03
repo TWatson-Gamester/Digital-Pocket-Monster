@@ -48,7 +48,12 @@ namespace Digital_Pocket_Monster.Controllers
             string email = User.FindFirstValue(ClaimTypes.Email); // gets email 
             string name = User.FindFirstValue(ClaimTypes.Name); //returns user@user.com/en-us/aspnet/core/security/authentication/identity-configuration
 
-            return View(dal.showCards(User.FindFirstValue(ClaimTypes.NameIdentifier)));
+            if(userID == null)
+            {
+                return View(dal.showCardsNonUser());
+            }
+
+            return View(dal.showCardsUsers(userID));
         }
 
         public IActionResult SeachCards(string srchKeyTerms)

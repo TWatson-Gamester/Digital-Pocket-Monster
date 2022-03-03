@@ -48,16 +48,6 @@ namespace Digital_Pocket_Monster.Models
 
         public Card() {}
 
-        public Card(string name, string cardType, string color, int level, string cardNumber, string image)
-        {
-            this.Name = name;
-            this.CardType = cardType;
-            this.Color = color;
-            this.Level = level;
-            this.CardNumber = cardNumber;
-            this.Image = image;
-        }
-
         public Card(string name, string cardType, string color, int level, string cardNumber, string image, 
                     int id, string digiColor, int playCost, int cardPower, string race, string attribute, 
                     string stageLevel, string rarity, int amountOwned, int pack, int? deck = null)
