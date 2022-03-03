@@ -9,13 +9,12 @@ namespace Digital_Pocket_Monster.Data
 {
     public class DecksDAL : IDataAccessLayerDecks
     {
-        private CardsDAL cdal;
+        //private CardsDAL cdal;
         private IdentityContext db;
 
-        public DecksDAL(IdentityContext indb, CardsDAL inCdal)
+        public DecksDAL(IdentityContext indb)
         {
             this.db = indb;
-            this.cdal = inCdal;
         }
 
         public void addCard(int? deckId, Card card)
@@ -38,8 +37,19 @@ namespace Digital_Pocket_Monster.Data
 
         public Card getCard(string cardNumber)
         {
-            Card card = cdal.getCard(cardNumber);
-            return card;
+            Card foundCard = null;
+
+            if (cardNumber != null)
+            {
+                db.Cards.ToList().ForEach(c =>
+                {
+                    if (c.CardNumber == cardNumber)
+                    {
+                        foundCard = c;
+                    }
+                });
+            }
+            return foundCard;
         }
 
         public List<Card> getCardsInDeck(int? deckId, Card card)
