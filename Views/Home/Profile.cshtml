@@ -2,6 +2,12 @@
     ViewData["Title"] = "Yu-gi";
     //As a heads up this page is not fully completed yet, Nothing is styled nor is it functioning - Tommy
 }
+
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
 <div class="row">
     <div class="col-12">
         <div class="text-center">
@@ -27,15 +33,18 @@
                     <div class="col-4 ">
                         <div class="row m-5">
                             <div class="col-12">
-                                <form asp-controller="Home" asp-action="EditProfile">
-                                    <button type="submit">Edit Profile</button>
-                                </form>
+                                <a id="manage" class="nav-link text-light darkBlueBGColor round-10" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
                             </div>
                             @*<div class="col-12">
-                                <form asp-controller="Home" asp-action="ChangePassword">
-                                    <button type="submit">Change Password</button>
-                                </form>
-                            </div>*@
+                                    <form asp-controller="Home" asp-action="EditProfile">
+                                        <button type="submit">Edit Profile</button>
+                                    </form>
+                                </div>*@
+                            @*<div class="col-12">
+                                    <form asp-controller="Home" asp-action="ChangePassword">
+                                        <button type="submit">Change Password</button>
+                                    </form>
+                                </div>*@
                             <div class="col-12">
                                 <form asp-controller="Home" asp-action="DeleteAccount">
                                     <button class="bg-danger" type="submit">Delete Account</button>
@@ -63,7 +72,7 @@
     <div class="col-12 m-2">
         <div class="d-flex justify-content-center">
             <form asp-controller="Home" asp-action="AddDeck">
-                <button type="submit" >Add Deck</button>
+                <button type="submit">Add Deck</button>
             </form>
         </div>
     </div>

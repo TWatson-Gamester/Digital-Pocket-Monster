@@ -19,13 +19,13 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row medBlueBGColor">
             <div class="col-6 align-self-start">
-                <p>Digi-eggs: @ViewBag.digiEggs/5 </p>
+                <p class="bold text-center">Digi-eggs: @ViewBag.digiEggs/5 </p>
             </div>
 
             <div class="col-6 align-self-end">
-                <p class="text-center">Cards: @ViewBag.cardsInDeck/50 </p>
+                <p class="bold text-center">Cards: @ViewBag.cardsInDeck/50 </p>
             </div>
         </div>
 
@@ -33,7 +33,9 @@
         <div class="row">
             @{ if (Model == null)
                 {
-                    <h1>no cards yet</h1>
+                    <div class="col-12 d-flex justify-content-center m-2">
+                        <h1 class="text-center">No Cards in this Deck yet</h1>
+                    </div>
                 }
                 else
                 {
@@ -74,7 +76,7 @@
         <div class="row">
             @{ if (ViewBag.cardCollection == null)
                 {
-                    <h1>no cards yet</h1>
+                    <h1>no cards in Collection</h1>
                 }
                 else
                 {
