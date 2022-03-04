@@ -44,16 +44,15 @@ namespace Digital_Pocket_Monster.Controllers
         }
         public IActionResult Collection()
         {
-            string userID = User.FindFirstValue(ClaimTypes.NameIdentifier); // wacky id 
+            string userID = User.FindFirstValue(ClaimTypes.NameIdentifier); // wacky id
             string email = User.FindFirstValue(ClaimTypes.Email); // gets email 
             string name = User.FindFirstValue(ClaimTypes.Name); //returns user@user.com/en-us/aspnet/core/security/authentication/identity-configuration
 
-            if(userID == null)
-            {
-                return View(dal.showCardsNonUser());
-            }
+            var viewModel = dal.showCardsUsers(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
-            return View(dal.showCardsUsers(userID));
+            
+
+            return View(viewModel);
         }
 
         public IActionResult SeachCards(string srchKeyTerms)

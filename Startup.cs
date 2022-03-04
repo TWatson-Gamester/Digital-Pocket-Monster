@@ -29,7 +29,7 @@ namespace Digital_Pocket_Monster
             services.AddControllersWithViews();
             services.AddDbContext<DigimonContext>(options =>
             {
-                options.UseSqlServer(Configuration.GetConnectionString("DigimonWebApp")); 
+                options.UseSqlServer(Configuration.GetConnectionString("DigimonWebApp"));
             });
 
             services.AddTransient<IDataAccessLayerCards, CardsDAL>();
