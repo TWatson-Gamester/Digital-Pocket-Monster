@@ -18,14 +18,19 @@ namespace Digital_Pocket_Monster.Controllers
         private int digiEggs = 0;
         private int cardsInDeck = 0;
         IDataAccessLayerDecks decksDAL;
+        IDataAccessLayerCards collection;
 
-        public DeckBuilderController(IDataAccessLayerDecks inDB)
+        public DeckBuilderController(IDataAccessLayerDecks inDB, IDataAccessLayerCards inCDB)
         {
             decksDAL = inDB;
+            collection = inCDB;
         }
 
         public IActionResult DeckBuilding()
         {
+            ViewBag.cardsInDeck = cardsInDeck;
+            ViewBag.digiEggs = digiEggs;
+            ViewBag.cardCollection = collection.showCardsNonUser();
             return View("DeckBuilding", decksDAL.getDeck(1));
         }
 
@@ -55,7 +60,7 @@ namespace Digital_Pocket_Monster.Controllers
                 cardsInDeck++;
             }
 
-            return View("DeckBuilding", decksDAL.getDeck(1));
+            return Redirect("DeckBuilding");
         }
 
         [HttpPost]
@@ -70,7 +75,7 @@ namespace Digital_Pocket_Monster.Controllers
             decksDAL.removeCard(1, cardBeingRemoved);
             cardsInDeck--;
 
-            return View("DeckBuilding", decksDAL.getDeck(1));
+            return Redirect("DeckBuilding");
         }
 
     }

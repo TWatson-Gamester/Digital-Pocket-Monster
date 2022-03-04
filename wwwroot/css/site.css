@@ -40,6 +40,10 @@ html {
     }
 }
 
+.buttonSize {
+    font-size: 90%;
+}
+
 .border-top {
     border-top: 1px solid #e5e5e5;
 }
@@ -92,7 +96,7 @@ img {
 }
 
 .cardImageSize {
-    width: 500px;
+    width: 100%;
 }
 
 .round-10 {
@@ -110,16 +114,7 @@ img {
 
 .sidebar-sticky {
     position: sticky;
-}
-
-.pageTitle {
-    background-color: blue;
-}
-
-.boxBGText {
-    background-color: #16425B !important;
-    border-color: #16425B !important;
-    color: #D9DCD6;
+    top: 0;
 }
 
 .bold {
@@ -130,19 +125,23 @@ img {
     vertical-align: middle;
 }
 
+.text80 {
+    font-size: 100%;
+}
+
 .card {
-    height: 350px;
-    background-color: powderblue;
-    font-size: 20px;
-    border-color: blue;
+    height: 400px;
+    font-size: 100%;
+    border-color: #16425B;
     color: black;
 }
 
 .card .card-header {
-    font-size: 98%;
+    font-size: 110%;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    height: 100%;
 }
 
 .fullScreen {
@@ -161,11 +160,35 @@ img {
     background-color: dimgrey;
 }
 
-
 /*
     Colors
 
 */
+.greyBoxBG {
+    background-color: #D9DCD6 !important;
+    border-color: #81C3D7 !important;
+    color: black;
+}
+.lightBlueBoxBG {
+    background-color: #81C3D7 !important;
+    border-color: #3A7CA5 !important;
+    color: black;
+}
+.medBlueBoxBG {
+    background-color: #3A7CA5 !important;
+    border-color: #2F6690 !important;
+    color: black;
+}
+.blueBoxBG {
+    background-color: #2F6690 !important;
+    border-color: #16425B !important;
+    color: white;
+}
+.darkBlueBoxBG {
+    background-color: #16425B !important;
+    border-color: #16425B !important;
+    color: white;
+}
 
 .whiteBGColor {
     background-color: #D9DCD6;

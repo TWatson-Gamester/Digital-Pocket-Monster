@@ -1,58 +1,43 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@model Card
+﻿@model Card
+
 @if (Model == null)
 {
     <h1>No card available</h1>
 }
 else
 {
-<div class="col-12">
-    <div class="row">
-        <div class="col-12 text-center">
-            <p><partial name="_FilterPartialView.cshtml" /> </p>
-
-            <h3 title="@Model.Name" class="card-header">@Model.Name</h3>
+    <div class="col-12">
+        <div class="row darkBlueBoxBG">
+            <div class="col-12">
+                <h2 title="@Model.Name" class="card-header text-center">@Model.Name</h2>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <img class="cardImageSize" src="~/images/@Model.Image">
-            @* </div>
-                <div class="col-md-6 text-center"> *@
-            <h5 hidden>Card Type: @Model.CardType</h5>
-            <h5 hidden>Color: @Model.Color</h5>
-            <h5 hidden>Level: @Model.Level</h5>
-            <h5 hidden>Card Number: @Model.CardNumber</h5>
+        <div class="row">
+            <div class="col-12">
+                <img class="cardImageSize" src="~/images/@Model.Image">
+                <h5 hidden>Card Type: @Model.CardType</h5>
+                <h5 hidden>Color: @Model.Color</h5>
+                <h5 hidden>Level: @Model.Level</h5>
+                <h5 hidden>Card Number: @Model.CardNumber</h5>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-12 d-flex justify-content-center">
-            @{ if (true)
-                {
-                    <form asp-action="AddCard" asp-controller="Home" method="post">
-                        <input name="cardNumber" value="@Model.CardNumber" type="text" hidden />
-                        <button type="submit">+</button>
+        <div class="row blueBoxBG">
+            <div class="col-12">
+                <div class="col-12">
+                    <h6 class="text80 m-2">Number Owned: @Model.AmountOwned</h6>
+                </div>
+                <div class="btn-group btn-group-sm align-content-center" role="group">
+                    <form asp-controller="Home" asp-action="AddCardToCollection" method="post">
+                        <input type="text" name="cardNumber" value="@Model.CardNumber" hidden />
+                        <button class="round-10 buttonSize m-1 p-1" type="submit">Add Card</button>
                     </form>
-                }
-                else
-                {
-                    <div class="col-1">
-                        <form asp-action="AddCard" asp-controller="Home" method="post">
-                            <input name="cardNumber" value="@Model.CardNumber" type="text" hidden />
-                            <button type="submit">+</button>
-                        </form>
-                    </div>
-                    <div class="col-1">
-                        <form asp-action="RemoveCard" asp-controller="Home" method="post">
-                            <input name="cardNumber" value="@Model.CardNumber" type="text" hidden />
-                            <button type="submit"> - </button>
-                        </form>
-                    </div>
-                }
-            }
+                    <form asp-controller="Home" asp-action="RemoveCardFromCollection" method="post">
+                        <input type="text" name="cardNumber" value="@Model.CardNumber" hidden />
+                        <button class="round-10 buttonSize m-1 p-1" type="submit">Remove Card</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+
 }

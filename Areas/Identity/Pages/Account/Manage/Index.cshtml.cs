@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Digital_Pocket_Monster.Areas.Identity.Pages.Account.Manage
 {
@@ -23,6 +24,8 @@ namespace Digital_Pocket_Monster.Areas.Identity.Pages.Account.Manage
         }
 
         public string Username { get; set; }
+
+        public string Name { get; set; }
 
         [TempData]
         public string StatusMessage { get; set; }
@@ -91,5 +94,27 @@ namespace Digital_Pocket_Monster.Areas.Identity.Pages.Account.Manage
             StatusMessage = "Your profile has been updated";
             return RedirectToPage();
         }
+/*
+        [Required]
+        public int Id { get; set; }
+        [Column(TypeName = "varchar(150)")]*/
+        
+/*        [Column(TypeName = "int")]
+        public int CardID { get; set; }
+        [Column(TypeName = "int")]
+        public int DeckID { get; set; }
+        [Column(TypeName = "nvarchar(450)")]
+        public string IdentityID { get; set; }*/
+
+/*        public IndexModel() { }
+
+        public IndexModel(int id, string name, int cardId, int deckId, string identityId)
+        {
+            this.Id = id;
+            this.Name = name;
+            this.CardID = cardId;
+            this.DeckID = deckId;
+            this.IdentityID = identityId;
+        }*/
     }
 }

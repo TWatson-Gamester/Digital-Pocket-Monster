@@ -1,17 +1,23 @@
-﻿<div class="col-12 sidebar">
-    <div class="sidebar-sticky">
+﻿<div class="col-12 sidebarsidebar-sticky m-2">
+    <div class="">
         <div class="nav">
-            <div class="d-flex justify-content-center">
-                <form asp-controller="Home" asp-action="FilterCards" method="post">
-                    <input type="search" name="color" placeholder="color" />
-                    <input type="search" name="cardType" placeholder="cardType" />
-                    <input type="search" name="level" placeholder="level" />
-                    <input type="search" name="name" placeholder="name" />
-                    <button type="submit">Submit</button>
-                </form>
+            <div class="col-12">
+                <div class="darkBlueBoxBG round-10 m-1">
+                    <p class="text-center bold">Filter</p>
+                </div>
+                <div class="row">
+                    <form asp-controller="Home" asp-action="FilterCards" method="post">
+                        <input class="round-10 " type="search" name="color" placeholder="color" />
+                        <input class="round-10 " type="search" name="cardType" placeholder="cardType" />
+                        <input class="round-10 " type="search" name="level" placeholder="level" />
+                        <input class="round-10 " type="search" name="name" placeholder="name" />
+                        <button class="darkBlueBoxBG round-10" type="submit">Submit</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
 
 
