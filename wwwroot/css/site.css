@@ -71,9 +71,9 @@ html {
 body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
-
     /*Added*/
     height: 100%;
+    background-color: #D9DCD6;
 }
 
 .footer {
