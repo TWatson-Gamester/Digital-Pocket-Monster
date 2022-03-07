@@ -12,7 +12,7 @@ namespace Digital_Pocket_Monster.Interface
         IEnumerable<Card> showCardsUsers(string userId);
         IEnumerable<Card> showCardsNonUser();
         IEnumerable<Card> searchCards(string searchCard);
-        IEnumerable<Card> filterCards(string color, string cardType, int? level, string name, string cardNumber, int? id, string digiColor, int? playCost, int? cardPower, string race, string attribute,
+        IEnumerable<Card> filterCards(string color, string cardType, int? level, string name, string cardNumber, string digiColor, int? playCost, int? cardPower, string race, string attribute,
             string stageLevel, string rarity, bool showOwned);
         Card getCard(string cardNumber);
         int getCardAmount(string cardNumber);

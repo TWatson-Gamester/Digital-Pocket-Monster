@@ -35,7 +35,7 @@ namespace Digital_Pocket_Monster.Data
             }
         }
 
-        public IEnumerable<Card> filterCards(string color, string cardType, int? level, string name, string cardNumber, int? id,
+        public IEnumerable<Card> filterCards(string color, string cardType, int? level, string name, string cardNumber,
             string digiColor, int? playCost, int? cardPower, string race, string attribute,
             string stageLevel, string rarity, bool showOwned)
         {
@@ -43,11 +43,11 @@ namespace Digital_Pocket_Monster.Data
 
             if(!string.IsNullOrWhiteSpace(color))
             {
-                query = query.Where(c => c.Color.ToLower().Equals(color.ToLower()));
+                query = query.Where(c => c.Color.ToLower().Contains(color.ToLower()));
             }
             if(!string.IsNullOrWhiteSpace(cardType))
             {
-                query = query.Where(c => c.CardType.ToLower().Equals(cardType.ToLower()));
+                query = query.Where(c => c.CardType.ToLower().Contains(cardType.ToLower()));
             }
             if(level.HasValue)
             {
@@ -59,15 +59,11 @@ namespace Digital_Pocket_Monster.Data
             }
             if(!string.IsNullOrWhiteSpace(cardNumber))
             {
-                query = query.Where(c => c.CardNumber.ToLower().Equals(cardNumber.ToLower()));
-            }
-            if(id.HasValue)
-            {
-                query = query.Where(c => c.ID == id.Value);
+                query = query.Where(c => c.CardNumber.ToLower().Contains(cardNumber.ToLower()));
             }
             if(!string.IsNullOrWhiteSpace(digiColor))
             {
-                query = query.Where(c => c.DigivolveColor.ToLower().Equals(digiColor.ToLower()));
+                query = query.Where(c => c.DigivolveColor.ToLower().Contains(digiColor.ToLower()));
             }
             if(playCost.HasValue)
             {
@@ -79,19 +75,19 @@ namespace Digital_Pocket_Monster.Data
             }
             if(!string.IsNullOrWhiteSpace(race))
             {
-                query = query.Where(c => c.Race.ToLower().Equals(race.ToLower()));
+                query = query.Where(c => c.Race.ToLower().Contains(race.ToLower()));
             }
             if(!string.IsNullOrWhiteSpace(attribute))
             {
-                query = query.Where(c => c.Attribute.ToLower().Equals(attribute.ToLower()));
+                query = query.Where(c => c.Attribute.ToLower().Contains(attribute.ToLower()));
             }
             if(!string.IsNullOrWhiteSpace(stageLevel))
             {
-                query = query.Where(c => c.StageLevel.ToLower().Equals(stageLevel.ToLower()));
+                query = query.Where(c => c.StageLevel.ToLower().Contains(stageLevel.ToLower()));
             }
             if(!string.IsNullOrWhiteSpace(rarity))
             {
-                query = query.Where(c => c.Rarity.ToLower().Equals(rarity.ToLower()));
+                query = query.Where(c => c.Rarity.ToLower().Contains(rarity.ToLower()));
             }
             if(showOwned)
             {
