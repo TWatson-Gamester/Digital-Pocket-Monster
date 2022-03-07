@@ -15,10 +15,11 @@ namespace Digital_Pocket_Monster.Controllers
 {
     public class DeckBuilderController : Controller
     {
-        private int digiEggs = 0;
-        private int cardsInDeck = 0;
+        private static int digiEggs = 0;
+        private static int cardsInDeck = 0;
         IDataAccessLayerDecks decksDAL;
         IDataAccessLayerCards collection;
+        private static List<Card> deck = new List<Card>();
 
         public DeckBuilderController(IDataAccessLayerDecks inDB, IDataAccessLayerCards inCDB)
         {
@@ -31,7 +32,8 @@ namespace Digital_Pocket_Monster.Controllers
             ViewBag.cardsInDeck = cardsInDeck;
             ViewBag.digiEggs = digiEggs;
             ViewBag.cardCollection = collection.showCardsNonUser();
-            return View("DeckBuilding", decksDAL.getDeck(1));
+            ViewBag.Deck = deck;
+            return View(); //decksDAL.getDeck(1)
         }
         public IActionResult FilterCards(string color, string cardType, int? level, string name, string cardNumber, int? id,
             string digiColor, int? playCost, int? cardPower, string race, string attribute,
@@ -47,23 +49,29 @@ namespace Digital_Pocket_Monster.Controllers
             bool canAdd = true;
             Card cardBeingAdded = decksDAL.getCard(cardNumber);
 
-            if (decksDAL.getCardAmount(cardBeingAdded.CardNumber) >= 4)
+            if (getCardAmount(cardBeingAdded.CardNumber) == 4)
             {
                 canAdd = false;
             }
 
-            if (cardBeingAdded.CardType == "Digitama" && digiEggs < 5 && canAdd)
+            if (cardBeingAdded.CardType == "Digitama" && canAdd)
             {
-                digiEggs++;
+                if (digiEggs < 5)
+                {
+                    digiEggs++;
+                }
+                else
+                {
+                    canAdd = false;
+                }
             }
-            else
-            {
-                canAdd = false;
-            }
+
 
             if (canAdd && cardsInDeck < 55)
             {
-                decksDAL.addCard(1, cardBeingAdded);
+                //decksDAL.addCard(1, cardBeingAdded);
+                deck.Add(cardBeingAdded);
+                deck.Sort();
                 cardsInDeck++;
             }
 
@@ -74,15 +82,57 @@ namespace Digital_Pocket_Monster.Controllers
         public IActionResult RemoveCard(string cardNumber)
         {
             Card cardBeingRemoved = decksDAL.getCard(cardNumber);
-            if(cardBeingRemoved.CardType == "Digitama")
+            if (doesDeckContainCard(cardNumber))
             {
-                digiEggs--;
+                if (cardBeingRemoved.CardType == "Digitama")
+                {
+                    digiEggs--;
+                }
+
+                //decksDAL.removeCard(1, cardBeingRemoved);
+                foreach(Card card in deck)
+                {
+                    if(card.CardNumber == cardNumber)
+                    {
+                        deck.Remove(card);
+                        deck.Sort();
+                        break;
+                    }
+                }
+                cardsInDeck--;
             }
 
-            decksDAL.removeCard(1, cardBeingRemoved);
-            cardsInDeck--;
-
             return Redirect("DeckBuilding");
+        }
+
+        private int getCardAmount(string CardNumber)
+        {
+            int cardCount = 0;
+
+            foreach(Card card in deck)
+            {
+                if(card.CardNumber == CardNumber)
+                {
+                    cardCount++;
+                }
+            }
+
+            return cardCount;
+        }
+
+        private bool doesDeckContainCard(string CardNumber)
+        {
+            bool containsCard = false;
+            foreach(Card card in deck)
+            {
+                if(card.CardNumber == CardNumber)
+                {
+                    containsCard = true;
+                    break;
+                }
+            }
+
+            return containsCard;
         }
 
     }

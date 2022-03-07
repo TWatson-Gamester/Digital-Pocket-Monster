@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Digital_Pocket_Monster.Models
 {
-    public class Card
+    public class Card : IComparable
     {
         [MaxLength(450)]
         public string UserID { get; set; }
@@ -74,6 +74,12 @@ namespace Digital_Pocket_Monster.Models
         public override string ToString()
         {
             return $"{Name} - {CardType} - {Color} - {Level} - {CardNumber}";
+        }
+
+        public int CompareTo(object obj)
+        {
+            Card testingCard = (Card)obj;
+            return ID.CompareTo(testingCard.ID);
         }
     }
 }
