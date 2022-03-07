@@ -21,11 +21,7 @@ namespace Digital_Pocket_Monster.Areas.Identity.Pages.Account.Manage
         {
             _userManager = userManager;
             _signInManager = signInManager;
-        }
-
-        
-
-        public string Name { get; set; }
+        }        
 
         [TempData]
         public string StatusMessage { get; set; }
