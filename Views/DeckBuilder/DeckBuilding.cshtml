@@ -1,5 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Deck Builder";
+    List<Card> deckToDisplay = ViewBag.Deck;
 }
 @model IEnumerable<Card>
 <div class="row d-flex justify-content-center darkBlueBGColor p-2">
@@ -31,13 +32,13 @@
 
         @*<p>Buttons for Deck - Implement later</p> Was Thinking of section to name the deck and also save the deck or we need another page for a deck*@
         <div class="row">
-            @{ if (Model == null)
+            @{ if (deckToDisplay.Count() == 0)//(Model == null)
                 {
                     <h1>no cards yet</h1>
                 }
                 else
                 {
-                    foreach (var card in Model)
+                    foreach (var card in deckToDisplay)
                     {
                         <div class="col-3">
                             <div class="round-10 text-center bold">
@@ -83,7 +84,7 @@
                         <div class="col-lg-3">
                             <div class="round-10 text-center bold">
                                 <div class="card m-1">
-                                    <partial name="~/Views/Home/_CardCollectionPartialView.cshtml" for="@card" />
+                                    <partial name="_CardDeckPartialView.cshtml" for="@card" />
                                 </div>
                             </div>
                         </div>
