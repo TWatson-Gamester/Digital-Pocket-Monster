@@ -49,10 +49,11 @@ namespace Digital_Pocket_Monster.Controllers
             string name = User.FindFirstValue(ClaimTypes.Name); //returns user@user.com/en-us/aspnet/core/security/authentication/identity-configuration
 
             var viewModel = dal.showCardsUsers(User.FindFirstValue(ClaimTypes.NameIdentifier));
-
-            
-
-            return View(viewModel);
+            if(userID != null)
+            {
+                return View(viewModel);
+            }
+            return View(dal.showCardsNonUser());
         }
 
         public IActionResult SeachCards(string srchKeyTerms)
