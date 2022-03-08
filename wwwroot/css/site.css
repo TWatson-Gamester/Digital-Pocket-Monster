@@ -129,8 +129,15 @@ img {
     font-size: 100%;
 }
 
-.card {
-    height: 400px;
+.deckCollectionCard {
+    height: 360px;
+    font-size: 100%;
+    border-color: #16425B;
+    color: black;
+}
+
+.collectionCard {
+    height: 450px;
     font-size: 100%;
     border-color: #16425B;
     color: black;
