@@ -23,15 +23,12 @@ else
         </div>
         <div class="row blueBoxBG">
             <div class="col-12">
-                <div class="col-12">
-                    <h6 class="text80 m-2">Number Owned: @Model.AmountOwned</h6>
-                </div>
                 <div class="btn-group btn-group-sm align-content-center" role="group">
-                    <form asp-controller="Home" asp-action="AddCardToCollection" method="post">
+                    <form asp-controller="DeckBuilder" asp-action="AddCard" method="post">
                         <input type="text" name="cardNumber" value="@Model.CardNumber" hidden />
                         <button class="round-10 buttonSize m-1 p-1" type="submit">Add Card</button>
                     </form>
-                    <form asp-controller="Home" asp-action="RemoveCardFromCollection" method="post">
+                    <form asp-controller="DeckBuilder" asp-action="RemoveCard" method="post">
                         <input type="text" name="cardNumber" value="@Model.CardNumber" hidden />
                         <button class="round-10 buttonSize m-1 p-1" type="submit">Remove Card</button>
                     </form>

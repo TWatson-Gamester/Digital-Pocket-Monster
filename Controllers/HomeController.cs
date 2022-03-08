@@ -49,10 +49,11 @@ namespace Digital_Pocket_Monster.Controllers
             string name = User.FindFirstValue(ClaimTypes.Name); //returns user@user.com/en-us/aspnet/core/security/authentication/identity-configuration
 
             var viewModel = dal.showCardsUsers(User.FindFirstValue(ClaimTypes.NameIdentifier));
-
-            
-
-            return View(viewModel);
+            if(userID != null)
+            {
+                return View(viewModel);
+            }
+            return View(dal.showCardsNonUser());
         }
 
         public IActionResult SeachCards(string srchKeyTerms)
@@ -65,7 +66,7 @@ namespace Digital_Pocket_Monster.Controllers
             string digiColor, int? playCost, int? cardPower, string race, string attribute,
             string stageLevel, string rarity, bool showOwned)
         {
-            return View("Collection", dal.filterCards(color, cardType, level, name, cardNumber, id, digiColor, playCost, cardPower,
+            return View("Collection", dal.filterCards(color, cardType, level, name, cardNumber, digiColor, playCost, cardPower,
                 race, attribute, stageLevel, rarity, showOwned));
         }
         public IActionResult Profile()

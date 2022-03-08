@@ -1,72 +1,84 @@
-﻿@{
+﻿@using System.Security.Claims;
+@{
     ViewData["Title"] = "Yu-gi";
     //As a heads up this page is not fully completed yet, Nothing is styled nor is it functioning - Tommy
 }
+
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
 <div class="row">
     <div class="col-12">
-        <div class="text-center">
-            <h1>Profile</h1>
+        <div class="row d-flex justify-content-center darkBlueBGColor text-light">
+            <div class="text-center">
+                <h1>Profile</h1>
+            </div>
         </div>
     </div>
 
     <div class="col-12">
-        <div class="d-flex justify-content-center border">
+        <div class="d-flex justify-content-center">
             <div class="col-md-6 col-sm-12">
-                <span><img src="~/images/Gommamon_Placeholder.png" /></span>
+                <img class="round-10" src="~/images/Gommamon_Placeholder.png" />
             </div>
             <div class="col-md-6 col-sm-12">
-                <div class="d-flex">
+                <div class="d-flex m-2">
                     <div class="col-8">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Name: Some Weirdo</li>
-                            <li class="list-group-item">Email: ThisGuyIsWeird@Email.com</li>
-                            <li class="list-group-item">Username: WeirdGuy09</li>
-                            <li class="list-group-item">Password: ********** </li>
+                        <ul class="list-group list-group-flush ">
+                            <li class="list-group-item medBlueBoxBG round-10">UserName: @UserManager.GetUserName(User)</li>
+                            <li class="list-group-item medBlueBoxBG round-10">Email: @User.FindFirstValue(ClaimTypes.Email)</li>
+                            <li class="list-group-item medBlueBoxBG round-10">Name:@User.FindFirstValue(ClaimTypes.Name)</li>
+                            <li class="list-group-item medBlueBoxBG round-10">Password: ********** </li>
                         </ul>
                     </div>
                     <div class="col-4 ">
                         <div class="row m-5">
                             <div class="col-12">
-                                <form asp-controller="Home" asp-action="EditProfile">
-                                    <button type="submit">Edit Profile</button>
-                                </form>
+                                <a id="manage" class="btn text-light darkBlueBGColor round-10" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Edit Account</a>
                             </div>
-                            @*<div class="col-12">
-                                <form asp-controller="Home" asp-action="ChangePassword">
-                                    <button type="submit">Change Password</button>
-                                </form>
-                            </div>*@
                             <div class="col-12">
                                 <form asp-controller="Home" asp-action="DeleteAccount">
-                                    <button class="bg-danger" type="submit">Delete Account</button>
+                                    <button class="btn btn-danger round-10" type="submit">Delete Account</button>
                                 </form>
                             </div>
+                            @*Hello @UserManager.GetUserName(User)!*@
+                            @*<div class="col-12">
+                                    <form asp-controller="Home" asp-action="EditProfile">
+                                        <button type="submit">Edit Profile</button>
+                                    </form>
+                                </div>*@
+                            @*<div class="col-12">
+                                    <form asp-controller="Home" asp-action="ChangePassword">
+                                        <button type="submit">Change Password</button>
+                                    </form>
+                                </div>*@
+                        </div>
+                    </div>
+                </div>
+                <div class="row m-5">
+                    <div class="col-12">
+                        <div class="d-flex justify-content-center">
+                            <span>
+                                <button type="submit" class="btn blueBoxBG">Deck 1</button>
+                                <button type="submit" class="btn blueBoxBG">Deck 2</button>
+                                <button type="submit" class="btn blueBoxBG">Deck 3</button>
+                                <button type="submit" class="btn blueBoxBG">Deck 4</button>
+                                <button type="submit" class="btn blueBoxBG">Deck 5</button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-12 m-2">
+                        <div class="d-flex justify-content-center">
+                            <form asp-controller="Home" asp-action="AddDeck">
+                                <button class="btn blueBoxBG" type="submit">Add Deck</button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="row m-5">
-    <div class="col-12">
-        <div class="d-flex justify-content-center">
-            <span>
-                <button type="submit" class="border">Deck 1</button>
-                <button type="submit" class="border">Deck 2</button>
-                <button type="submit" class="border">Deck 3</button>
-                <button type="submit" class="border">Deck 4</button>
-                <button type="submit" class="border">Deck 5</button>
-            </span>
-        </div>
-    </div>
-    <div class="col-12 m-2">
-        <div class="d-flex justify-content-center">
-            <form asp-controller="Home" asp-action="AddDeck">
-                <button type="submit" >Add Deck</button>
-            </form>
-        </div>
-    </div>
-</div>
 
-
+</div>
