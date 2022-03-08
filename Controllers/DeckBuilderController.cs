@@ -17,6 +17,7 @@ namespace Digital_Pocket_Monster.Controllers
     {
         private static int digiEggs = 0;
         private static int cardsInDeck = 0;
+        private static string deckName = "Deck 1";
         IDataAccessLayerDecks decksDAL;
         IDataAccessLayerCards collection;
         private static List<Card> deck = new List<Card>();
@@ -33,13 +34,14 @@ namespace Digital_Pocket_Monster.Controllers
             ViewBag.digiEggs = digiEggs;
             ViewBag.cardCollection = collection.showCardsNonUser();
             ViewBag.Deck = deck;
+            ViewBag.DeckName = deckName;
             return View(); //decksDAL.getDeck(1)
         }
-        /*public IActionResult FilterCards(string color, string cardType, int? level, string name, string cardNumber, int? id,
+        public IActionResult FilterCards(string color, string cardType, int? level, string name, string cardNumber,
             string digiColor, int? playCost, int? cardPower, string race, string attribute,
             string stageLevel, string rarity, bool showOwned)
         {
-            return View("DeckBuilding", collection.filterCards(color, cardType, level, name, cardNumber, id, digiColor, playCost, cardPower,
+            return View("DeckBuilding", collection.filterCards(color, cardType, level, name, cardNumber, digiColor, playCost, cardPower,
                 race, attribute, stageLevel, rarity, showOwned));
         }*/
 
@@ -135,5 +137,21 @@ namespace Digital_Pocket_Monster.Controllers
             return containsCard;
         }
 
+        [HttpPost]
+        public IActionResult clearDeck()
+        {
+            deck.Clear();
+            cardsInDeck = 0;
+            digiEggs = 0;
+
+            return Redirect("DeckBuilding");
+        }
+
+        [HttpPost]
+        public IActionResult changeDeckName(string name)
+        {
+            deckName = name;
+            return Redirect("DeckBuilding");
+        }
     }
 }

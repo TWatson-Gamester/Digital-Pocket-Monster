@@ -2,7 +2,7 @@
     ViewData["Title"] = "Deck Builder";
     List<Card> deckToDisplay = ViewBag.Deck;
 }
-@model IEnumerable<Card>
+@model IEnumerable<Deck>
 <div class="row d-flex justify-content-center darkBlueBGColor p-2">
     <h1 class="text-light text-center">@ViewBag.Title</h1>
 </div>
@@ -14,9 +14,18 @@
     <div class="col-6 border border-dark border-3">
         <div class="row blueBGColor">
             <div class="col-12">
+                <div>
+                    <form asp-controller="DeckBuilder" asp-action="ClearDeck" method="post">
+                        <button type="submit">Clear Deck</button>
+                    </form>
+                    <form asp-controller="DeckBuilder" asp-action="changeDeckName" method="post">
+                        <input type="text" name="name" placeholder="Deck Name"/>
+                        <button type="submit">Change Name</button>
+                    </form>
+                </div>
                 <div class="col-12 align-self-center">
                     @* Take the deck name from the profile pg or set to defult name. ex: Deck 1 *@
-                    <h3 class="text-center">Deck 1</h3>
+                    <h3 class="text-center">@ViewBag.DeckName</h3>
                 </div>
             </div>
         </div>
