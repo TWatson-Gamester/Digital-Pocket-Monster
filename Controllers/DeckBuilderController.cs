@@ -43,7 +43,7 @@ namespace Digital_Pocket_Monster.Controllers
         {
             return View("DeckBuilding", collection.filterCards(color, cardType, level, name, cardNumber, digiColor, playCost, cardPower,
                 race, attribute, stageLevel, rarity, showOwned));
-        }*/
+        }
 
         [HttpPost]
         public IActionResult AddCard(string cardNumber)
