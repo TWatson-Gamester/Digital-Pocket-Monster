@@ -16,11 +16,11 @@
             <div class="col-12">
                 <div>
                     <form asp-controller="DeckBuilder" asp-action="ClearDeck" method="post">
-                        <button type="submit">Clear Deck</button>
+                        <button class="darkBlueBoxBG btn round-10 buttonSize m-1" type="submit">Clear Deck</button>
                     </form>
                     <form asp-controller="DeckBuilder" asp-action="changeDeckName" method="post">
-                        <input type="text" name="name" placeholder="Deck Name"/>
-                        <button type="submit">Change Name</button>
+                        <input class="round-10 m-1" type="text" name="name" placeholder="Deck Name" />
+                        <button class="darkBlueBoxBG btn round-10 buttonSize m-1" type="submit">Change Name</button>
                     </form>
                 </div>
                 <div class="col-12 align-self-center">
@@ -51,11 +51,9 @@
                 {
                     foreach (var card in deckToDisplay)
                     {
-                        <div class="col-3">
-                            <div class="round-10 text-center bold">
-                                <div class="card m-1">
-                                    <partial name="_CardDeckPartialView.cshtml" for="@card" />
-                                </div>
+                        <div class="col-3 m-1">
+                            <div class="round-10 bold">
+                                <partial name="_CardDeckPartialView.cshtml" for="@card" />
                             </div>
                         </div>
                     }
@@ -92,9 +90,9 @@
                 {
                     foreach (var card in ViewBag.cardCollection)
                     {
-                        <div class="col-lg-3">
+                        <div class="col-3">
                             <div class="round-10 text-center bold">
-                                <div class="card m-1">
+                                <div class="deckCollectionCard m-1">
                                     <partial name="_CardDeckPartialView.cshtml" for="@card" />
                                 </div>
                             </div>
