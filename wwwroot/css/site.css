@@ -137,14 +137,21 @@ img {
 }
 
 .collectionCard {
-    height: 410px;
+    height: 390px;
     font-size: 90%;
     border-color: #16425B;
     color: black;
 }
 
-.card .card-header {
+.deckCollectionCard .card-header {
     font-size: 90%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    height: 100%;
+}
+.collectionCard .card-header {
+    font-size: 110%;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
