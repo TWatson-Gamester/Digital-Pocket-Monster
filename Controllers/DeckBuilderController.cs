@@ -41,8 +41,13 @@ namespace Digital_Pocket_Monster.Controllers
             string digiColor, int? playCost, int? cardPower, string race, string attribute,
             string stageLevel, string rarity, bool showOwned)
         {
-            return View("DeckBuilding", collection.filterCards(color, cardType, level, name, cardNumber, digiColor, playCost, cardPower,
-                race, attribute, stageLevel, rarity, showOwned));
+            ViewBag.cardsInDeck = cardsInDeck;
+            ViewBag.digiEggs = digiEggs;
+            ViewBag.cardCollection = collection.filterCards(color, cardType, level, name, cardNumber, digiColor, playCost, cardPower,
+                race, attribute, stageLevel, rarity, showOwned);
+            ViewBag.Deck = deck;
+            ViewBag.DeckName = deckName;
+            return View("DeckBuilding");
         }
 
         [HttpPost]
